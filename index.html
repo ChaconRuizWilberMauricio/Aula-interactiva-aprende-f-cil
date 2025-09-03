@@ -4,50 +4,65 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aula Interactiva</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background: #f0f4f8;
-      margin: 0;
-    }
-    header {
-      background: #007BFF;
-      color: white;
-      padding: 20px;
-      font-size: 24px;
-      font-weight: bold;
-    }
-    nav {
-      margin: 30px 0;
-    }
-    a {
-      display: block;
-      margin: 15px auto;
-      padding: 15px 30px;
-      font-size: 18px;
-      background: #007BFF;
-      color: white;
-      text-decoration: none;
-      border-radius: 10px;
-      width: 300px;
-      transition: background 0.3s;
-    }
-    a:hover {
-      background: #0056b3;
-    }
-  </style>
+
+  <!-- Bootstrap CSS local  -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <!-- Tus estilos propios -->
+  <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-  <header>
-    🌟 Aula Interactiva: Aprende Fácil 🌟
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">🌟 Aula Interactiva</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="matematicas.html">Matemáticas</a></li>
+          <li class="nav-item"><a class="nav-link" href="humanidades.html">Humanidades</a></li>
+          <li class="nav-item"><a class="nav-link" href="lengua.html">Lengua</a></li>
+          <li class="nav-item"><a class="nav-link" href="materia-energia.html">Materia y Energía</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <header class="bg-light text-center p-5">
+    <h1 class="display-4">Bienvenido a tu Aula Interactiva 🎓</h1>
+    <p class="lead">Elige una materia y aprende de manera fácil y divertida.</p>
   </header>
 
-  <nav>
-    <a href="matematicas.html">📐 Matemáticas</a>
-    <a href="humanidades.html">📚 Humanidades</a>
-    <a href="Lengua y comunicacion.html">✍️ Lengua y Comunicación</a>
-    <a href="La conservacion de la materia.html">🔬 Conservación de la Materia y la Energía</a>
-  </nav>
+  <!-- BOTONES DE MATERIAS -->
+  <main class="container my-5">
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <a href="matematicas.html" class="btn btn-success w-100 p-4 shadow">📐 Matemáticas</a>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <a href="humanidades.html" class="btn btn-warning w-100 p-4 shadow">📚 Humanidades</a>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <a href="Lengua y comunicacion.html" class="btn btn-danger w-100 p-4 shadow">✍️ Lengua</a>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <a href="La conservacion de la materia.html" class="btn btn-info w-100 p-4 shadow">🔬 Materia y Energía</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark text-white text-center p-3">
+    <p>&copy; 2025 Aula Interactiva | Creado para estudiantes de preparatoria</p>
+  </footer>
+
+  <!-- Bootstrap JS local -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <!-- Tu JS -->
+  <script src="js/app.js"></script>
 </body>
 </html>

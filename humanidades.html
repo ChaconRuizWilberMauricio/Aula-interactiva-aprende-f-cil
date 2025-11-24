@@ -1,30 +1,469 @@
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BQnMve6ypvg?si=q2ooDfa6XBBlT3Bd" 
+          title="Video de Humanidades" frameborder="0" allowfullscreen></iframe>
+ <div class="juego">
+    <iframe src="https://es.educaplay.com/recursos-educativos/humanidades/" width="500" height="400"></iframe>
+  </div>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Humanidades</title>
-  <style>
-    body { font-family: Arial, sans-serif; background: #f9f9f9; text-align: center; margin: 0; padding: 20px; }
-    header { background: #6f42c1; color: white; padding: 15px; font-size: 22px; font-weight: bold; }
-    iframe { margin: 20px 0; border-radius: 10px; }
-    .juego { margin: 20px auto; padding: 15px; border: 2px solid #ccc; border-radius: 10px; max-width: 600px; background: white; }
-    a { display: inline-block; margin-top: 20px; text-decoration: none; padding: 10px 20px; background: #007BFF; color: white; border-radius: 8px; }
-    a:hover { background: #0056b3; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Web Responsive</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Encabezado */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        /* Menú de navegación */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #3498db;
+        }
+        
+        /* Botón menú móvil */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Sección principal */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://source.unsplash.com/random/1200x600') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 5rem 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+        }
+        
+        /* Sección de características */
+        .features {
+            padding: 3rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            color: #2c3e50;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+        
+        /* Contenedor responsive para iframes */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+            height: 0;
+            margin: 2rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Contenedor responsive para el juego */
+        .juego-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 80%; /* Relación de aspecto personalizada para el juego */
+            height: 0;
+            margin: 2rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+        }
+        
+        .juego-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Sección de contenido multimedia */
+        .multimedia-section {
+            padding: 2rem 0;
+            background-color: white;
+            border-radius: 8px;
+            margin: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .multimedia-section h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        /* Pie de página */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 1.5rem;
+        }
+        
+        /* Media Queries para Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #2c3e50;
+                text-align: center;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                padding: 1rem 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .juego-container {
+                padding-bottom: 100%; /* Mayor altura en móviles para mejor usabilidad */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 3rem 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .feature-card {
+                padding: 1.5rem;
+            }
+            
+            .multimedia-section {
+                padding: 1.5rem;
+            }
+        }
+        
+        /* Estilos específicos para el botón de volver */
+        .back-button {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .back-button:hover {
+            background: #2980b9;
+            color: white;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-  <header>📚 Humanidades</header>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">🌟 MATEMATICAS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="matematicas.html">Matemáticas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="humanidades.html">Humanidades</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Lengua y comunicacion.html">Lengua y comunicación</a></li>
+                    <li class="nav-item"><a class="nav-link" href="La conservacion de la materia.html">La conservacion de la materia</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-  <h2>Video de apoyo</h2>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/BQnMve6ypvg?si=q2ooDfa6XBBlT3Bd" 
-          title="Video de Humanidades" frameborder="0" allowfullscreen></iframe>
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="container">
+        <!-- Sección Hero -->
+        <section class="hero">
+            <h1>Explora el Mundo de las Matemáticas</h1>
+            <p>Descubre conceptos fascinantes, resuelve problemas desafiantes y mejora tus habilidades matemáticas con nuestros recursos interactivos.</p>
+            <a href="#multimedia" class="btn">Ver Recursos</a>
+        </section>
 
-  <h2>Juego interactivo</h2>
-  <div class="juego">
-    <iframe src="https://es.educaplay.com/recursos-educativos/humanidades/" width="500" height="400"></iframe>
-  </div>
+        <!-- Sección de características -->
+        <section class="features">
+            <h2 class="section-title">Nuestros Recursos</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Lecciones Interactivas</h3>
+                    <p>Aprende matemáticas de manera divertida con nuestras lecciones paso a paso y ejemplos prácticos.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Ejercicios Prácticos</h3>
+                    <p>Pon a prueba tus conocimientos con ejercicios diseñados para diferentes niveles de habilidad.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Herramientas Gráficas</h3>
+                    <p>Visualiza conceptos matemáticos complejos con nuestras herramientas gráficas interactivas.</p>
+                </div>
+            </div>
+        </section>
 
-  <a href="index.html">⬅️ Volver al menú</a>
+        <!-- Sección Multimedia -->
+        <section id="multimedia" class="multimedia-section">
+            <h2>Video de apoyo</h2>
+            <p>Este video te ayudará a comprender mejor los conceptos matemáticos que estamos estudiando.</p>
+            
+            <!-- Contenedor responsive para el video -->
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/BQnMve6ypvg?si=q2ooDfa6XBBlT3Bd" 
+                        title="Video de Humanidades" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <h2>Juego interactivo</h2>
+            <p>Practica tus habilidades matemáticas con este juego interactivo de GeoGebra.</p>
+            
+            <!-- Contenedor responsive para el juego -->
+            <div class="juego-container">
+                <iframe src="https://www.geogebra.org/classic#graphing" title="Juego interactivo de Matemáticas"></iframe>
+            </div>
+            
+            <div class="text-center">
+                <a href="index.html" class="back-button">⬅️ Volver al menú</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p>Email: info@matematicas.com</p>
+                    <p>Teléfono: +1 234 567 890</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <p><a href="matematicas.html">Matemáticas</a></p>
+                    <p><a href="humanidades.html">Humanidades</a></p>
+                    <p><a href="Lengua y comunicacion.html">Lengua y comunicación</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <p>Facebook</p>
+                    <p>Twitter</p>
+                    <p>Instagram</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Recursos Matemáticos. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://es.educaplay.com/recursos-educativos/humanidades/"></script>
+    <script>
+        // Script para mejorar la experiencia en móviles
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ajustar altura del juego en dispositivos móviles
+            function adjustGameHeight() {
+                const juegoContainer = document.querySelector('.juego-container');
+                if (window.innerWidth <= 768) {
+                    juegoContainer.style.paddingBottom = '120%';
+                } else {
+                    juegoContainer.style.paddingBottom = '80%';
+                }
+            }
+            
+            // Ajustar al cargar y al redimensionar
+            adjustGameHeight();
+            window.addEventListener('resize', adjustGameHeight);
+            
+            // Mejorar la accesibilidad de los iframes
+            const iframes = document.querySelectorAll('iframe');
+            iframes.forEach(iframe => {
+                iframe.setAttribute('aria-label', iframe.getAttribute('title') || 'Contenido embebido');
+            });
+        });
+    </script>
 </body>
 </html>

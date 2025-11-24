@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -210,6 +210,124 @@
             border-bottom: 2px solid #3498db;
         }
         
+        /* Estilos para el sistema de preguntas */
+        .quiz-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .question-card {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #3498db;
+        }
+        
+        .question-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1rem;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .option:hover {
+            background-color: #f1f8ff;
+            border-color: #3498db;
+        }
+        
+        .option.selected {
+            background-color: #e1f0ff;
+            border-color: #3498db;
+        }
+        
+        .option.correct {
+            background-color: #d4edda;
+            border-color: #28a745;
+        }
+        
+        .option.incorrect {
+            background-color: #f8d7da;
+            border-color: #dc3545;
+        }
+        
+        .option input {
+            margin-right: 0.8rem;
+        }
+        
+        .quiz-button {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .quiz-button:hover {
+            background: #2980b9;
+        }
+        
+        .quiz-button:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+        
+        .results-container {
+            text-align: center;
+            padding: 2rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        
+        .score {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .feedback {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 4px;
+        }
+        
+        .feedback.correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .feedback.incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
         /* Pie de página */
         footer {
             background: #2c3e50;
@@ -288,6 +406,14 @@
             .juego-container {
                 padding-bottom: 100%; /* Mayor altura en móviles para mejor usabilidad */
             }
+            
+            .quiz-container {
+                padding: 1.5rem;
+            }
+            
+            .question-card {
+                padding: 1rem;
+            }
         }
         
         @media (max-width: 480px) {
@@ -309,6 +435,10 @@
             
             .multimedia-section {
                 padding: 1.5rem;
+            }
+            
+            .quiz-container {
+                padding: 1rem;
             }
         }
         
@@ -393,6 +523,20 @@
                         title="Video de Lengua y comunicación" frameborder="0" allowfullscreen></iframe>
             </div>
 
+            <!-- Sistema de Preguntas -->
+            <div class="quiz-container" id="quiz-section">
+                <h2>Pon a prueba tus conocimientos</h2>
+                <p>Responde las siguientes preguntas para evaluar lo que has aprendido:</p>
+                
+                <div id="questions-container"></div>
+                
+                <div class="text-center">
+                    <button id="submit-btn" class="quiz-button">Verificar respuestas</button>
+                    <button id="restart-btn" class="quiz-button" style="display: none;">Intentar de nuevo</button>
+                </div>
+                
+                <div id="results-container" class="results-container" style="display: none;"></div>
+            </div>
                        
             <div class="text-center">
                 <a href="index.html" class="back-button">⬅️ Volver al menú</a>
@@ -418,7 +562,7 @@
                 <div class="footer-section">
                     <h3>Síguenos</h3>
                       <p>Instagram: wmauricr, Grrld1nx, _aoi.ntf_</p>              
-		  </div>
+                </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2023 Recursos de Lengua y comunicación. Todos los derechos reservados.</p>
@@ -428,14 +572,269 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Script para mejorar la experiencia en móviles
+        // Banco de preguntas sobre Lengua y Comunicación
+        const allQuestions = [
+            {
+                question: "¿Cuál es la función principal de la comunicación?",
+                options: [
+                    "Transmitir información",
+                    "Entretener al receptor",
+                    "Complicar el mensaje",
+                    "Limitar el intercambio de ideas"
+                ],
+                correctAnswer: 0
+            },
+            {
+                question: "¿Qué elemento de la comunicación se refiere al contenido del mensaje?",
+                options: [
+                    "Código",
+                    "Canal",
+                    "Referente",
+                    "Contexto"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "¿Cuál de estos es un tipo de comunicación no verbal?",
+                options: [
+                    "Una carta",
+                    "Un mensaje de texto",
+                    "Los gestos corporales",
+                    "Una llamada telefónica"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "¿Qué función del lenguaje predomina en un texto científico?",
+                options: [
+                    "Emotiva",
+                    "Referencial",
+                    "Fática",
+                    "Poética"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "¿Qué es la coherencia en un texto?",
+                options: [
+                    "La correcta ortografía",
+                    "La relación lógica entre las ideas",
+                    "El uso de sinónimos",
+                    "La extensión del texto"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "¿Cuál es la diferencia principal entre denotación y connotación?",
+                options: [
+                    "La denotación es objetiva, la connotación es subjetiva",
+                    "La denotación es oral, la connotación es escrita",
+                    "La denotación es formal, la connotación es informal",
+                    "La denotación es moderna, la connotación es antigua"
+                ],
+                correctAnswer: 0
+            },
+            {
+                question: "¿Qué tipo de texto tiene como objetivo convencer al receptor?",
+                options: [
+                    "Narrativo",
+                    "Descriptivo",
+                    "Argumentativo",
+                    "Expositivo"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "¿Qué elemento gramatical es esencial para la cohesión textual?",
+                options: [
+                    "Los signos de puntuación",
+                    "Los conectores",
+                    "Las mayúsculas",
+                    "Las abreviaturas"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "¿Cuál de estas características define mejor a la comunicación oral?",
+                options: [
+                    "Permite la revisión del mensaje",
+                    "Es más formal que la escrita",
+                    "Incluye elementos paralingüísticos",
+                    "Carece de contexto"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "¿Qué barrera de la comunicación se refiere a diferencias culturales?",
+                options: [
+                    "Física",
+                    "Semántica",
+                    "Psicológica",
+                    "Fisiológica"
+                ],
+                correctAnswer: 1
+            }
+        ];
+
+        // Variables globales
+        let selectedQuestions = [];
+        let userAnswers = {};
+        let quizCompleted = false;
+
+        // Función para seleccionar 5 preguntas aleatorias
+        function selectRandomQuestions() {
+            // Copiar el array original para no modificarlo
+            const questionsCopy = [...allQuestions];
+            selectedQuestions = [];
+            
+            // Seleccionar 5 preguntas aleatorias
+            for (let i = 0; i < 5; i++) {
+                if (questionsCopy.length === 0) break;
+                
+                const randomIndex = Math.floor(Math.random() * questionsCopy.length);
+                selectedQuestions.push(questionsCopy[randomIndex]);
+                questionsCopy.splice(randomIndex, 1);
+            }
+        }
+
+        // Función para mostrar las preguntas en la interfaz
+        function displayQuestions() {
+            const container = document.getElementById('questions-container');
+            container.innerHTML = '';
+            
+            selectedQuestions.forEach((question, index) => {
+                const questionCard = document.createElement('div');
+                questionCard.className = 'question-card';
+                
+                const questionText = document.createElement('div');
+                questionText.className = 'question-text';
+                questionText.textContent = `${index + 1}. ${question.question}`;
+                
+                const optionsContainer = document.createElement('div');
+                optionsContainer.className = 'options-container';
+                
+                question.options.forEach((option, optionIndex) => {
+                    const optionDiv = document.createElement('div');
+                    optionDiv.className = 'option';
+                    optionDiv.dataset.questionIndex = index;
+                    optionDiv.dataset.optionIndex = optionIndex;
+                    
+                    const radioInput = document.createElement('input');
+                    radioInput.type = 'radio';
+                    radioInput.name = `question-${index}`;
+                    radioInput.id = `q${index}-option${optionIndex}`;
+                    radioInput.value = optionIndex;
+                    
+                    const label = document.createElement('label');
+                    label.htmlFor = `q${index}-option${optionIndex}`;
+                    label.textContent = option;
+                    
+                    optionDiv.appendChild(radioInput);
+                    optionDiv.appendChild(label);
+                    
+                    // Agregar evento de clic para seleccionar la opción
+                    optionDiv.addEventListener('click', function() {
+                        if (quizCompleted) return;
+                        
+                        // Desmarcar todas las opciones de esta pregunta
+                        const allOptions = optionsContainer.querySelectorAll('.option');
+                        allOptions.forEach(opt => opt.classList.remove('selected'));
+                        
+                        // Marcar la opción seleccionada
+                        this.classList.add('selected');
+                        radioInput.checked = true;
+                        
+                        // Guardar la respuesta del usuario
+                        userAnswers[index] = optionIndex;
+                    });
+                    
+                    optionsContainer.appendChild(optionDiv);
+                });
+                
+                questionCard.appendChild(questionText);
+                questionCard.appendChild(optionsContainer);
+                container.appendChild(questionCard);
+            });
+        }
+
+        // Función para verificar las respuestas
+        function checkAnswers() {
+            let correctCount = 0;
+            const totalQuestions = selectedQuestions.length;
+            
+            // Verificar cada pregunta
+            selectedQuestions.forEach((question, index) => {
+                const userAnswer = userAnswers[index];
+                const correctAnswer = question.correctAnswer;
+                const questionCard = document.querySelector(`.question-card:nth-child(${index + 1})`);
+                const options = questionCard.querySelectorAll('.option');
+                
+                // Marcar la respuesta correcta
+                options[correctAnswer].classList.add('correct');
+                
+                // Si el usuario respondió, marcar si es correcta o incorrecta
+                if (userAnswer !== undefined) {
+                    if (userAnswer === correctAnswer) {
+                        correctCount++;
+                    } else {
+                        options[userAnswer].classList.add('incorrect');
+                    }
+                }
+            });
+            
+            // Mostrar resultados
+            showResults(correctCount, totalQuestions);
+            quizCompleted = true;
+            
+            // Cambiar el botón
+            document.getElementById('submit-btn').style.display = 'none';
+            document.getElementById('restart-btn').style.display = 'inline-block';
+        }
+
+        // Función para mostrar los resultados
+        function showResults(correctCount, totalQuestions) {
+            const resultsContainer = document.getElementById('results-container');
+            const percentage = (correctCount / totalQuestions) * 100;
+            
+            let message = '';
+            if (percentage >= 80) {
+                message = '¡Excelente! Dominas muy bien estos conceptos.';
+            } else if (percentage >= 60) {
+                message = '¡Buen trabajo! Tienes un buen conocimiento del tema.';
+            } else if (percentage >= 40) {
+                message = 'No está mal, pero puedes mejorar. Revisa el video nuevamente.';
+            } else {
+                message = 'Necesitas repasar más. Te recomendamos ver el video nuevamente.';
+            }
+            
+            resultsContainer.innerHTML = `
+                <div class="score">Obtuviste ${correctCount} de ${totalQuestions} respuestas correctas (${percentage.toFixed(0)}%)</div>
+                <div class="feedback ${percentage >= 60 ? 'correct' : 'incorrect'}">${message}</div>
+            `;
+            
+            resultsContainer.style.display = 'block';
+        }
+
+        // Función para reiniciar el cuestionario
+        function restartQuiz() {
+            userAnswers = {};
+            quizCompleted = false;
+            selectRandomQuestions();
+            displayQuestions();
+            
+            document.getElementById('submit-btn').style.display = 'inline-block';
+            document.getElementById('restart-btn').style.display = 'none';
+            document.getElementById('results-container').style.display = 'none';
+        }
+
+        // Inicializar el cuestionario cuando se carga la página
         document.addEventListener('DOMContentLoaded', function() {
             // Ajustar altura del juego en dispositivos móviles
             function adjustGameHeight() {
                 const juegoContainer = document.querySelector('.juego-container');
-                if (window.innerWidth <= 768) {
+                if (juegoContainer && window.innerWidth <= 768) {
                     juegoContainer.style.paddingBottom = '120%';
-                } else {
+                } else if (juegoContainer) {
                     juegoContainer.style.paddingBottom = '80%';
                 }
             }
@@ -449,6 +848,14 @@
             iframes.forEach(iframe => {
                 iframe.setAttribute('aria-label', iframe.getAttribute('title') || 'Contenido embebido');
             });
+            
+            // Inicializar el sistema de preguntas
+            selectRandomQuestions();
+            displayQuestions();
+            
+            // Configurar eventos de los botones
+            document.getElementById('submit-btn').addEventListener('click', checkAnswers);
+            document.getElementById('restart-btn').addEventListener('click', restartQuiz);
         });
     </script>
 </body>

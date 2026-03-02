@@ -7,15 +7,24 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Estilos adicionales para mantener las animaciones -->
+  <style>
+    .btn {
+      transition: transform 0.3s ease;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
 
   <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-3">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">🌟 BRAIN BOOST</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" 
-              aria-controls="menu" aria-expanded="false" aria-label="Menú">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">🌟 BRAIN BOOST</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Menú">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="menu">
@@ -36,30 +45,34 @@
     <p class="lead">Elige una materia y aprende de manera fácil y divertida.</p>
   </header>
 
-  <!-- BOTONES DE MATERIAS -->
+  <!-- BOTONES DE MATERIAS (CON ANIMACIONES Y TAMAÑO ORIGINAL) -->
   <main class="container my-5">
     <div class="row g-4">
-      <div class="col-md-6 col-lg-2">
+      <div class="col-md-6 col-lg-3">
         <a href="matematicas.html" class="btn btn-success w-100 p-4 shadow">📐 Matemáticas</a>
       </div>
-      <div class="col-md-6 col-lg-2">
-        <a href="humanidades.html" class="btn btn-warning w-100 p-4 shadow text-dark">📚 Humanidades</a>
+      <div class="col-md-6 col-lg-3">
+        <a href="humanidades.html" class="btn btn-warning w-100 p-4 shadow">📚 Humanidades</a>
       </div>
-      <div class="col-md-6 col-lg-2">
+      <div class="col-md-6 col-lg-3">
         <a href="lengua-comunicacion.html" class="btn btn-danger w-100 p-4 shadow">✍️ Lengua y comunicación</a>
       </div>
-      <div class="col-md-6 col-lg-2">
-        <a href="conservacion-materia.html" class="btn btn-info w-100 p-4 shadow text-dark">🔬 La conservación de la materia</a>
+      <div class="col-md-6 col-lg-3">
+        <a href="conservacion-materia.html" class="btn btn-info w-100 p-4 shadow">🔬 La conservación de la materia</a>
       </div>
-      <div class="col-md-6 col-lg-2">
-        <a href="ingles.html" class="btn w-100 p-4 shadow" style="background-color: #005f73; color: white;">🇬🇧 Inglés</a>
+      <!-- NUEVA FILA PARA INGLÉS (para mantener el diseño de 4 columnas) -->
+      <div class="row mt-4">
+        <div class="col-md-6 col-lg-3 mx-auto">
+          <a href="ingles.html" class="btn w-100 p-4 shadow" style="background-color: #005f73; color: white; transition: transform 0.3s ease;" 
+             onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">🇬🇧 Inglés</a>
+        </div>
       </div>
     </div>
   </main>
 
-  <!-- FOOTER (SIN DATOS PERSONALES) -->
-  <footer class="bg-dark text-white text-center p-4">
-    <p class="mb-0">&copy; 2025 BRAIN BOOST | Creado para estudiantes de preparatoria</p>
+  <!-- FOOTER (SIMPLE COMO ANTES) -->
+  <footer class="bg-dark text-white text-center p-3">
+    <p>&copy; 2025 Aula Interactiva | Creado para estudiantes de preparatoria</p>
   </footer>
 
   <!-- Bootstrap JS -->

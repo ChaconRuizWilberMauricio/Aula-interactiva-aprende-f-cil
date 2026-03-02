@@ -8,16 +8,12 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- Font Awesome para iconos -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Estilos personalizados */
-        body {
-            background-color: #f8f9fa;
-        }
+        body { background-color: #f8f9fa; }
         
-        /* Hero section con degradado azul marino a turquesa */
         .hero-section {
             background: linear-gradient(135deg, #005f73 0%, #0a9396 100%);
             color: white;
@@ -26,7 +22,6 @@
             border-radius: 0 0 2rem 2rem;
         }
         
-        /* Tarjetas de características */
         .feature-card {
             background: white;
             border-radius: 1rem;
@@ -48,10 +43,9 @@
             margin-bottom: 1rem;
         }
         
-        /* Contenedor de video responsive */
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             border-radius: 1rem;
@@ -68,7 +62,6 @@
             border: none;
         }
         
-        /* Estilos para el quiz */
         .quiz-container {
             background: white;
             border-radius: 1rem;
@@ -145,11 +138,6 @@
             background: #0a4958;
         }
         
-        .quiz-button:disabled {
-            background: #cbd5e0;
-            cursor: not-allowed;
-        }
-        
         .results-container {
             background: #f8f9fa;
             border-radius: 1rem;
@@ -164,7 +152,6 @@
             color: #005f73;
         }
         
-        /* Botón volver */
         .back-button {
             display: inline-block;
             background: #6c757d;
@@ -182,7 +169,6 @@
             color: white;
         }
         
-        /* Tarjetas de vocabulario (extra para inglés) */
         .vocab-card {
             background: white;
             border-radius: 1rem;
@@ -192,11 +178,11 @@
             box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.05);
             transition: transform 0.3s;
             border-top: 4px solid #005f73;
+            text-align: center;
         }
         
         .vocab-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
         }
         
         .vocab-word {
@@ -211,7 +197,6 @@
             margin-bottom: 0.5rem;
         }
         
-        /* Footer */
         footer {
             background: #2c3e50;
             color: white;
@@ -228,35 +213,13 @@
         .footer-link:hover {
             color: white;
         }
-        
-        /* Ajustes responsive */
-        @media (max-width: 768px) {
-            .hero-section {
-                padding: 3rem 0;
-                border-radius: 0 0 1.5rem 1.5rem;
-            }
-            
-            .hero-section h1 {
-                font-size: 2rem;
-            }
-            
-            .quiz-container {
-                padding: 1.5rem;
-            }
-            
-            .question-card {
-                padding: 1rem;
-            }
-        }
     </style>
 </head>
 <body>
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-3">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">
-                🌟 BRAIN BOOST
-            </a>
+            <a class="navbar-brand fw-bold" href="index.html">🌟 BRAIN BOOST</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" 
                     aria-controls="menu" aria-expanded="false" aria-label="Menú">
                 <span class="navbar-toggler-icon"></span>
@@ -265,8 +228,8 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="matematicas.html">Matemáticas</a></li>
                     <li class="nav-item"><a class="nav-link" href="humanidades.html">Humanidades</a></li>
-                    <li class="nav-item"><a class="nav-link" href="lengua-comunicacion.html">Lengua</a></li>
-                    <li class="nav-item"><a class="nav-link" href="conservacion-materia.html">Ciencias</a></li>
+                    <li class="nav-item"><a class="nav-link" href="lengua-comunicacion.html">Lengua y comunicación</a></li>
+                    <li class="nav-item"><a class="nav-link" href="conservacion-materia.html">La conservación de la materia</a></li>
                     <li class="nav-item"><a class="nav-link active" href="ingles.html">Inglés</a></li>
                 </ul>
             </div>
@@ -276,10 +239,10 @@
     <!-- HERO SECTION -->
     <section class="hero-section">
         <div class="container text-center">
-            <h1 class="display-4 fw-bold mb-3">🇬🇧 English Zone</h1>
-            <p class="lead mb-4">Improve your English skills with interactive lessons, vocabulary, and fun exercises</p>
+            <h1 class="display-4 fw-bold mb-3">🇬🇧 Aprende Inglés</h1>
+            <p class="lead mb-4">Mejora tu inglés con lecciones interactivas, vocabulario y ejercicios divertidos</p>
             <a href="#recursos" class="btn btn-light btn-lg px-5 py-3 rounded-pill">
-                <i class="fas fa-play me-2"></i>Start Learning
+                <i class="fas fa-play me-2"></i>Comenzar
             </a>
         </div>
     </section>
@@ -287,419 +250,250 @@
     <div class="container">
         <!-- CARACTERÍSTICAS -->
         <section class="mb-5" id="recursos">
-            <h2 class="text-center mb-4">Our Resources</h2>
+            <h2 class="text-center mb-4">Nuestros Recursos</h2>
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="feature-card text-center">
-                        <div class="feature-icon">
-                            <i class="fas fa-book-open"></i>
-                        </div>
-                        <h3>Interactive Lessons</h3>
-                        <p class="text-muted">Learn grammar, vocabulary, and expressions with step-by-step lessons.</p>
+                        <div class="feature-icon"><i class="fas fa-book-open"></i></div>
+                        <h3>Lecciones Interactivas</h3>
+                        <p class="text-muted">Aprende gramática, vocabulario y expresiones con lecciones paso a paso.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="feature-card text-center">
-                        <div class="feature-icon">
-                            <i class="fas fa-headphones"></i>
-                        </div>
-                        <h3>Listening Practice</h3>
-                        <p class="text-muted">Improve your listening comprehension with audio exercises.</p>
+                        <div class="feature-icon"><i class="fas fa-headphones"></i></div>
+                        <h3>Práctica de Listening</h3>
+                        <p class="text-muted">Mejora tu comprensión auditiva con ejercicios de audio.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="feature-card text-center">
-                        <div class="feature-icon">
-                            <i class="fas fa-comments"></i>
-                        </div>
-                        <h3>Speaking Practice</h3>
-                        <p class="text-muted">Practice common conversations and improve your fluency.</p>
+                        <div class="feature-icon"><i class="fas fa-comments"></i></div>
+                        <h3>Práctica de Speaking</h3>
+                        <p class="text-muted">Practica conversaciones comunes y mejora tu fluidez.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN DE VOCABULARIO -->
+        <!-- VOCABULARIO BÁSICO -->
         <section class="mb-5">
-            <h2 class="text-center mb-4">📖 Essential Vocabulary</h2>
+            <h2 class="text-center mb-4">📖 Vocabulario Básico</h2>
             <div class="row g-4">
                 <div class="col-md-3">
-                    <div class="vocab-card text-center">
+                    <div class="vocab-card">
                         <div class="vocab-word">Hello</div>
                         <div class="vocab-translation">Hola</div>
-                        <span class="badge bg-info">Greeting</span>
+                        <span class="badge bg-info">Saludo</span>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="vocab-card text-center">
+                    <div class="vocab-card">
                         <div class="vocab-word">Goodbye</div>
                         <div class="vocab-translation">Adiós</div>
-                        <span class="badge bg-info">Greeting</span>
+                        <span class="badge bg-info">Despedida</span>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="vocab-card text-center">
+                    <div class="vocab-card">
                         <div class="vocab-word">Please</div>
                         <div class="vocab-translation">Por favor</div>
-                        <span class="badge bg-success">Polite</span>
+                        <span class="badge bg-success">Cortesía</span>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="vocab-card text-center">
+                    <div class="vocab-card">
                         <div class="vocab-word">Thank you</div>
                         <div class="vocab-translation">Gracias</div>
-                        <span class="badge bg-success">Polite</span>
+                        <span class="badge bg-success">Cortesía</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN DE VIDEO -->
+        <!-- VIDEO -->
         <section class="mb-5">
-            <h2 class="text-center mb-4">Video Lesson</h2>
-            <p class="text-center mb-4">Watch this video to improve your English skills.</p>
-            
+            <h2 class="text-center mb-4">Video de Apoyo</h2>
+            <p class="text-center mb-4">Mira este video para aprender vocabulario básico en inglés.</p>
             <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/5p7JEG0g0Os?si=7jQbZqWqXqWqXqWq" 
-                        title="English Lesson" 
+                <iframe src="https://www.youtube.com/embed/5p7JEG0g0Os" 
+                        title="Curso de Inglés para Principiantes" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen>
                 </iframe>
             </div>
         </section>
 
-        <!-- SISTEMA DE PREGUNTAS -->
+        <!-- QUIZ EN ESPAÑOL -->
         <section class="quiz-container">
-            <h2 class="text-center mb-3">📝 Test Your Knowledge</h2>
-            <p class="text-center text-muted mb-4">Answer the following questions to practice what you've learned:</p>
-            
+            <h2 class="text-center mb-3">📝 Pon a prueba tus conocimientos</h2>
+            <p class="text-center text-muted mb-4">Responde las siguientes preguntas para practicar:</p>
             <div id="questions-container"></div>
-            
             <div class="text-center mt-4">
-                <button id="submit-btn" class="quiz-button">
-                    <i class="fas fa-check me-2"></i>Check Answers
-                </button>
-                <button id="restart-btn" class="quiz-button" style="display: none;">
-                    <i class="fas fa-redo me-2"></i>Try Again
-                </button>
+                <button id="submit-btn" class="quiz-button"><i class="fas fa-check me-2"></i>Verificar respuestas</button>
+                <button id="restart-btn" class="quiz-button" style="display: none;"><i class="fas fa-redo me-2"></i>Intentar de nuevo</button>
             </div>
-            
             <div id="results-container" class="results-container" style="display: none;"></div>
         </section>
 
         <!-- SECCIÓN DE COMENTARIOS -->
         <section class="quiz-container mt-5">
-            <h2 class="text-center mb-3" style="color: #005f73;">
-                <i class="fas fa-comments me-2"></i>Feedback & Suggestions
-            </h2>
-            <p class="text-center text-muted mb-4">Leave your comments and I'll receive them in my email</p>
-            
+            <h2 class="text-center mb-3" style="color: #005f73;"><i class="fas fa-comments me-2"></i>¿Tienes sugerencias?</h2>
+            <p class="text-center text-muted mb-4">Déjanos tu comentario y me llegará directamente a mi correo</p>
             <form action="https://formspree.io/f/mbdaennd" method="POST" class="p-3">
                 <input type="hidden" name="materia" value="Inglés">
-                
                 <div class="mb-3">
-                    <label class="form-label fw-bold">Your name:</label>
+                    <label class="form-label fw-bold">Tu nombre:</label>
                     <input type="text" name="nombre" class="form-control form-control-lg" required>
                 </div>
-                
                 <div class="mb-3">
-                    <label class="form-label fw-bold">Your email <span class="text-muted">(optional)</span>:</label>
+                    <label class="form-label fw-bold">Tu email <span class="text-muted">(opcional)</span>:</label>
                     <input type="email" name="email" class="form-control form-control-lg">
                 </div>
-                
                 <div class="mb-3">
-                    <label class="form-label fw-bold">Your comment or suggestion:</label>
+                    <label class="form-label fw-bold">Comentario o sugerencia:</label>
                     <textarea name="mensaje" class="form-control form-control-lg" rows="4" required></textarea>
                 </div>
-                
                 <div class="text-center">
                     <button type="submit" class="btn btn-lg px-5 rounded-pill" 
                             style="background: linear-gradient(135deg, #005f73, #0a9396); color: white; border: none;">
-                        <i class="fas fa-paper-plane me-2"></i>Send Comment
+                        <i class="fas fa-paper-plane me-2"></i>Enviar comentario
                     </button>
                 </div>
             </form>
-            
-            <p class="text-center text-muted small mt-3">
-                <i class="fas fa-check-circle" style="color: #005f73;"></i>
-                Thank you for helping us improve!
-            </p>
+            <p class="text-center text-muted small mt-3"><i class="fas fa-check-circle" style="color: #005f73;"></i>¡Gracias por ayudar a mejorar BRAIN BOOST!</p>
         </section>
 
         <!-- BOTÓN VOLVER -->
         <div class="text-center">
-            <a href="index.html" class="back-button">
-                <i class="fas fa-arrow-left me-2"></i>Back to Home
-            </a>
+            <a href="index.html" class="back-button"><i class="fas fa-arrow-left me-2"></i>Volver al Inicio</a>
         </div>
     </div>
 
-    <!-- FOOTER -->
+    <!-- FOOTER CON TUS DATOS -->
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4">
-                    <h5 class="mb-3">Contact</h5>
+                    <h5 class="mb-3">Contacto</h5>
                     <p><i class="fas fa-envelope me-2"></i>mauricioruiz.cb144@gmail.com</p>
                     <p><i class="fas fa-phone me-2"></i>+52 961 386 45 31</p>
                 </div>
                 <div class="col-md-4 mb-4">
-                    <h5 class="mb-3">Quick Links</h5>
+                    <h5 class="mb-3">Enlaces Rápidos</h5>
                     <p><a href="matematicas.html" class="footer-link">Matemáticas</a></p>
                     <p><a href="humanidades.html" class="footer-link">Humanidades</a></p>
-                    <p><a href="lengua-comunicacion.html" class="footer-link">Lengua</a></p>
-                    <p><a href="conservacion-materia.html" class="footer-link">Ciencias</a></p>
+                    <p><a href="lengua-comunicacion.html" class="footer-link">Lengua y comunicación</a></p>
+                    <p><a href="conservacion-materia.html" class="footer-link">La conservación de la materia</a></p>
                     <p><a href="ingles.html" class="footer-link">Inglés</a></p>
                 </div>
                 <div class="col-md-4 mb-4">
-                    <h5 class="mb-3">Follow Us</h5>
+                    <h5 class="mb-3">Síguenos</h5>
                     <p><i class="fab fa-instagram me-2"></i>@wmauricr</p>
                 </div>
             </div>
             <div class="text-center pt-3 border-top border-secondary">
-                <p class="mb-0">&copy; 2025 BRAIN BOOST. All rights reserved.</p>
+                <p class="mb-0">&copy; 2025 BRAIN BOOST. Creado para estudiantes de preparatoria.</p>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
     <script>
-        // Banco de preguntas sobre Inglés
         const allQuestions = [
-            {
-                question: "How do you say 'hola' in English?",
-                options: ["Goodbye", "Hello", "Thank you", "Please"],
-                correctAnswer: 1
-            },
-            {
-                question: "What is the correct translation of 'gracias'?",
-                options: ["Please", "Sorry", "Thank you", "Hello"],
-                correctAnswer: 2
-            },
-            {
-                question: "Which word means 'perro' in English?",
-                options: ["Cat", "Dog", "Bird", "Fish"],
-                correctAnswer: 1
-            },
-            {
-                question: "How do you say 'adiós' in English?",
-                options: ["Hello", "Good morning", "Goodbye", "Good night"],
-                correctAnswer: 2
-            },
-            {
-                question: "What is the correct article for 'apple'?",
-                options: ["A", "An", "The", "None"],
-                correctAnswer: 1
-            },
-            {
-                question: "Which is a color in English?",
-                options: ["Red", "Run", "Read", "Rice"],
-                correctAnswer: 0
-            },
-            {
-                question: "How do you say 'por favor' in English?",
-                options: ["Sorry", "Thank you", "Please", "Welcome"],
-                correctAnswer: 2
-            },
-            {
-                question: "What is the correct verb: 'I ___ a student'?",
-                options: ["is", "are", "am", "be"],
-                correctAnswer: 2
-            },
-            {
-                question: "Which word is a number?",
-                options: ["Blue", "Three", "House", "Car"],
-                correctAnswer: 1
-            },
-            {
-                question: "How do you say '¿cómo estás?' in English?",
-                options: ["What's up?", "How old are you?", "How are you?", "Where are you?"],
-                correctAnswer: 2
-            }
+            { question: "¿Cómo se dice 'hola' en inglés?", options: ["Goodbye", "Hello", "Thank you", "Please"], correctAnswer: 1 },
+            { question: "¿Cuál es la traducción correcta de 'gracias'?", options: ["Please", "Sorry", "Thank you", "Hello"], correctAnswer: 2 },
+            { question: "¿Qué palabra significa 'perro' en inglés?", options: ["Cat", "Dog", "Bird", "Fish"], correctAnswer: 1 },
+            { question: "¿Cómo se dice 'adiós' en inglés?", options: ["Hello", "Good morning", "Goodbye", "Good night"], correctAnswer: 2 },
+            { question: "¿Cuál es el artículo correcto para 'apple'?", options: ["A", "An", "The", "None"], correctAnswer: 1 },
+            { question: "¿Cuál de estas es un color en inglés?", options: ["Red", "Run", "Read", "Rice"], correctAnswer: 0 },
+            { question: "¿Cómo se dice 'por favor' en inglés?", options: ["Sorry", "Thank you", "Please", "Welcome"], correctAnswer: 2 },
+            { question: "¿Cuál es el verbo correcto: 'I ___ a student'?", options: ["is", "are", "am", "be"], correctAnswer: 2 },
+            { question: "¿Qué palabra es un número?", options: ["Blue", "Three", "House", "Car"], correctAnswer: 1 },
+            { question: "¿Cómo se dice '¿cómo estás?' en inglés?", options: ["What's up?", "How old are you?", "How are you?", "Where are you?"], correctAnswer: 2 }
         ];
 
-        // Variables globales
-        let selectedQuestions = [];
-        let userAnswers = {};
-        let quizCompleted = false;
+        let selectedQuestions = [], userAnswers = {}, quizCompleted = false;
 
-        // Función para seleccionar 5 preguntas aleatorias
         function selectRandomQuestions() {
-            const questionsCopy = [...allQuestions];
+            const copy = [...allQuestions];
             selectedQuestions = [];
-            
             for (let i = 0; i < 5; i++) {
-                if (questionsCopy.length === 0) break;
-                
-                const randomIndex = Math.floor(Math.random() * questionsCopy.length);
-                selectedQuestions.push(questionsCopy[randomIndex]);
-                questionsCopy.splice(randomIndex, 1);
+                if (copy.length === 0) break;
+                const randomIndex = Math.floor(Math.random() * copy.length);
+                selectedQuestions.push(copy[randomIndex]);
+                copy.splice(randomIndex, 1);
             }
         }
 
-        // Función para mostrar las preguntas
         function displayQuestions() {
             const container = document.getElementById('questions-container');
             container.innerHTML = '';
-            
-            selectedQuestions.forEach((question, index) => {
-                const questionCard = document.createElement('div');
-                questionCard.className = 'question-card';
-                
-                const questionText = document.createElement('div');
-                questionText.className = 'question-text';
-                questionText.textContent = `${index + 1}. ${question.question}`;
-                
-                const optionsContainer = document.createElement('div');
-                optionsContainer.className = 'options-container';
-                
-                question.options.forEach((option, optionIndex) => {
-                    const optionDiv = document.createElement('div');
-                    optionDiv.className = 'option';
-                    
-                    const radioInput = document.createElement('input');
-                    radioInput.type = 'radio';
-                    radioInput.name = `question-${index}`;
-                    radioInput.value = optionIndex;
-                    
-                    const label = document.createElement('label');
-                    label.textContent = option;
-                    label.style.marginLeft = '0.5rem';
-                    label.style.flex = '1';
-                    
-                    optionDiv.appendChild(radioInput);
-                    optionDiv.appendChild(label);
-                    
-                    optionDiv.addEventListener('click', function(e) {
+            selectedQuestions.forEach((q, idx) => {
+                const card = document.createElement('div');
+                card.className = 'question-card';
+                card.innerHTML = `<div class="question-text">${idx+1}. ${q.question}</div>`;
+                const optsDiv = document.createElement('div');
+                optsDiv.className = 'options-container';
+                q.options.forEach((opt, optIdx) => {
+                    const optDiv = document.createElement('div');
+                    optDiv.className = 'option';
+                    optDiv.innerHTML = `<input type="radio" name="q${idx}" value="${optIdx}"><label style="margin-left:0.5rem; flex:1">${opt}</label>`;
+                    optDiv.querySelector('input').addEventListener('change', function() {
                         if (quizCompleted) return;
-                        
-                        if (e.target.tagName === 'INPUT') return;
-                        
-                        const radio = this.querySelector('input[type="radio"]');
-                        if (radio) {
-                            radio.checked = true;
-                            
-                            optionsContainer.querySelectorAll('.option').forEach(opt => {
-                                opt.classList.remove('selected');
-                            });
-                            
-                            this.classList.add('selected');
-                            userAnswers[index] = parseInt(radio.value);
-                        }
+                        optsDiv.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+                        optDiv.classList.add('selected');
+                        userAnswers[idx] = parseInt(this.value);
                     });
-                    
-                    radioInput.addEventListener('change', function() {
-                        if (quizCompleted) return;
-                        
-                        optionsContainer.querySelectorAll('.option').forEach(opt => {
-                            opt.classList.remove('selected');
-                        });
-                        
-                        optionDiv.classList.add('selected');
-                        userAnswers[index] = parseInt(this.value);
-                    });
-                    
-                    optionsContainer.appendChild(optionDiv);
+                    optsDiv.appendChild(optDiv);
                 });
-                
-                questionCard.appendChild(questionText);
-                questionCard.appendChild(optionsContainer);
-                container.appendChild(questionCard);
+                card.appendChild(optsDiv);
+                container.appendChild(card);
             });
         }
 
-        // Función para verificar respuestas
         function checkAnswers() {
-            let correctCount = 0;
-            const totalQuestions = selectedQuestions.length;
-            
+            let correct = 0;
             quizCompleted = true;
-            
-            selectedQuestions.forEach((question, index) => {
-                const userAnswer = userAnswers[index];
-                const correctAnswer = question.correctAnswer;
-                const questionCards = document.querySelectorAll('.question-card');
-                const questionCard = questionCards[index];
-                const options = questionCard.querySelectorAll('.option');
-                
-                options.forEach(opt => {
-                    const radio = opt.querySelector('input[type="radio"]');
-                    if (radio) radio.disabled = true;
-                    opt.classList.add('disabled-option');
-                });
-                
-                if (options[correctAnswer]) {
-                    options[correctAnswer].classList.add('correct');
-                }
-                
-                if (userAnswer !== undefined && userAnswer !== correctAnswer) {
-                    options[userAnswer].classList.add('incorrect');
-                }
-                
-                if (userAnswer === correctAnswer) {
-                    correctCount++;
+            selectedQuestions.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                const correctAns = q.correctAnswer;
+                const cards = document.querySelectorAll('.question-card');
+                const opts = cards[idx].querySelectorAll('.option');
+                opts.forEach(o => { o.querySelector('input').disabled = true; o.classList.add('disabled-option'); });
+                if (opts[correctAns]) opts[correctAns].classList.add('correct');
+                if (userAns !== undefined) {
+                    if (userAns === correctAns) correct++;
+                    else if (opts[userAns]) opts[userAns].classList.add('incorrect');
                 }
             });
-            
-            showResults(correctCount, totalQuestions);
-            
+            showResults(correct, selectedQuestions.length);
             document.getElementById('submit-btn').style.display = 'none';
             document.getElementById('restart-btn').style.display = 'inline-block';
         }
 
-        // Función para mostrar resultados
-        function showResults(correctCount, totalQuestions) {
-            const resultsContainer = document.getElementById('results-container');
-            const percentage = (correctCount / totalQuestions) * 100;
-            
-            let message = '';
-            let icon = '';
-            
-            if (percentage >= 80) {
-                icon = '🏆';
-                message = 'Excellent! You have a great command of English.';
-            } else if (percentage >= 60) {
-                icon = '👍';
-                message = 'Good job! Keep practicing to improve more.';
-            } else if (percentage >= 40) {
-                icon = '📚';
-                message = 'Not bad, but you can improve. Watch the video again.';
-            } else {
-                icon = '💪';
-                message = 'Keep practicing. Review the lesson and try again.';
-            }
-            
-            resultsContainer.innerHTML = `
-                <div class="score-badge">${icon} ${correctCount}/${totalQuestions}</div>
-                <div class="display-6 mb-3">${percentage.toFixed(0)}%</div>
-                <div class="feedback p-3 rounded ${percentage >= 60 ? 'bg-success text-white' : 'bg-warning'}">
-                    ${message}
-                </div>
-            `;
-            
-            resultsContainer.style.display = 'block';
-            resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        function showResults(correct, total) {
+            const res = document.getElementById('results-container');
+            const pct = (correct/total)*100;
+            let msg = pct >= 80 ? '🏆 ¡Excelente! Dominas muy bien estos conceptos.' :
+                      pct >= 60 ? '👍 ¡Buen trabajo! Sigue practicando.' :
+                      pct >= 40 ? '📚 No está mal, pero puedes mejorar.' : '💪 Sigue practicando.';
+            res.innerHTML = `<div class="score-badge">${correct}/${total}</div><div class="display-6 mb-3">${pct.toFixed(0)}%</div>
+                <div class="feedback p-3 rounded ${pct>=60?'bg-success text-white':'bg-warning'}">${msg}</div>`;
+            res.style.display = 'block';
         }
 
-        // Función para reiniciar el quiz
         function restartQuiz() {
-            userAnswers = {};
-            quizCompleted = false;
-            selectRandomQuestions();
-            displayQuestions();
-            
+            userAnswers = {}; quizCompleted = false;
+            selectRandomQuestions(); displayQuestions();
             document.getElementById('submit-btn').style.display = 'inline-block';
             document.getElementById('restart-btn').style.display = 'none';
             document.getElementById('results-container').style.display = 'none';
         }
 
-        // Inicializar cuando la página carga
-        document.addEventListener('DOMContentLoaded', function() {
-            selectRandomQuestions();
-            displayQuestions();
-            
+        document.addEventListener('DOMContentLoaded', () => {
+            selectRandomQuestions(); displayQuestions();
             document.getElementById('submit-btn').addEventListener('click', checkAnswers);
             document.getElementById('restart-btn').addEventListener('click', restartQuiz);
         });

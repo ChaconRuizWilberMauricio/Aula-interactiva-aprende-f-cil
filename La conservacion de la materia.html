@@ -3,166 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BRAINBOOST</title>
+    <title>BRAIN BOOST - Conservación de la Materia</title>
+    
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome para iconos (opcional pero mejora el diseño) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        /* Estilos generales */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
+        /* Estilos personalizados (solo lo necesario, Bootstrap ya da mucho) */
         body {
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
+            background-color: #f8f9fa;
         }
         
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        /* Encabezado */
-        header {
-            background-color: #2c3e50;
+        /* Hero section con degradado bonito */
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 4rem 0;
+            margin-bottom: 3rem;
+            border-radius: 0 0 2rem 2rem;
         }
         
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        
-        /* Menú de navegación */
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 1.5rem;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            color: #3498db;
-        }
-        
-        /* Botón menú móvil */
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        /* Sección principal */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://source.unsplash.com/random/1200x600') no-repeat center center/cover;
-            color: white;
-            text-align: center;
-            padding: 5rem 1rem;
-            margin-bottom: 2rem;
-        }
-        
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: #3498db;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-        
-        .btn:hover {
-            background: #2980b9;
-        }
-        
-        /* Sección de características */
-        .features {
-            padding: 3rem 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: 2rem;
-            color: #2c3e50;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
+        /* Tarjetas de características */
         .feature-card {
             background: white;
+            border-radius: 1rem;
             padding: 2rem;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s;
+            height: 100%;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.08);
         }
         
         .feature-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 1rem 2rem rgba(0,0,0,0.12);
         }
         
         .feature-icon {
-            font-size: 3rem;
-            color: #3498db;
+            font-size: 2.5rem;
+            color: #667eea;
             margin-bottom: 1rem;
         }
         
-        /* Contenedor responsive para iframes */
-        .video-container {
+        /* Contenedor de video responsive */
+        .video-wrapper {
             position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+            padding-bottom: 56.25%; /* 16:9 */
             height: 0;
-            margin: 2rem 0;
-            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 1rem;
+            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
         }
         
-        .video-container iframe {
+        .video-wrapper iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -171,240 +67,147 @@
             border: none;
         }
         
-        /* Contenedor responsive para el juego */
-        .juego-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 80%; /* Relación de aspecto personalizada para el juego */
-            height: 0;
-            margin: 2rem 0;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            background-color: #f5f5f5;
-            border: 1px solid #ddd;
-        }
-        
-        .juego-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
-        /* Sección de contenido multimedia */
-        .multimedia-section {
-            padding: 2rem 0;
-            background-color: white;
-            border-radius: 8px;
-            margin: 2rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        
-        .multimedia-section h2 {
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #3498db;
-        }
-        
-        /* Estilos para el sistema de preguntas */
+        /* Estilos para el quiz */
         .quiz-container {
-            background-color: white;
-            border-radius: 8px;
+            background: white;
+            border-radius: 1rem;
             padding: 2rem;
-            margin: 2rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.08);
         }
         
         .question-card {
-            background-color: #f8f9fa;
-            border-radius: 8px;
+            background: #f8f9fa;
+            border-radius: 0.75rem;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
-            border-left: 4px solid #3498db;
+            border-left: 4px solid #667eea;
         }
         
         .question-text {
-            font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 1rem;
             color: #2c3e50;
         }
         
-        .options-container {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-        }
-        
         .option {
             display: flex;
             align-items: center;
-            padding: 0.8rem 1rem;
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            padding: 0.75rem 1rem;
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
             cursor: pointer;
             transition: all 0.2s;
         }
         
-        .option:hover {
-            background-color: #f1f8ff;
-            border-color: #3498db;
+        .option:hover:not(.disabled-option) {
+            border-color: #667eea;
+            background: #f0f3ff;
         }
         
         .option.selected {
-            background-color: #e1f0ff;
-            border-color: #3498db;
+            border-color: #667eea;
+            background: #e8eeff;
         }
         
         .option.correct {
-            background-color: #d4edda;
             border-color: #28a745;
+            background: #d4edda;
         }
         
         .option.incorrect {
-            background-color: #f8d7da;
             border-color: #dc3545;
+            background: #f8d7da;
         }
         
-        .option input {
-            margin-right: 0.8rem;
+        .option input[type="radio"] {
+            margin-right: 1rem;
+            width: 1.2rem;
+            height: 1.2rem;
         }
         
         .quiz-button {
-            display: inline-block;
-            background: #3498db;
+            background: #667eea;
             color: white;
-            padding: 0.8rem 1.5rem;
             border: none;
-            border-radius: 5px;
+            padding: 0.75rem 2rem;
+            border-radius: 2rem;
+            font-weight: 600;
             cursor: pointer;
             transition: background 0.3s;
-            font-size: 1rem;
-            margin-top: 1rem;
+            margin: 0.5rem;
         }
         
         .quiz-button:hover {
-            background: #2980b9;
+            background: #5a67d8;
         }
         
         .quiz-button:disabled {
-            background: #bdc3c7;
+            background: #cbd5e0;
             cursor: not-allowed;
         }
         
         .results-container {
-            text-align: center;
+            background: #f8f9fa;
+            border-radius: 1rem;
             padding: 2rem;
-            background-color: #f8f9fa;
-            border-radius: 8px;
+            margin-top: 2rem;
+            text-align: center;
+        }
+        
+        .score-badge {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        /* Botón volver */
+        .back-button {
+            display: inline-block;
+            background: #6c757d;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
             margin-top: 2rem;
         }
         
-        .score {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 1rem;
+        .back-button:hover {
+            background: #5a6268;
+            color: white;
         }
         
-        .feedback {
-            margin-top: 1rem;
-            padding: 1rem;
-            border-radius: 4px;
-        }
-        
-        .feedback.correct {
-            background-color: #d4edda;
-            color: #155724;
-        }
-        
-        .feedback.incorrect {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
-        
-        /* Pie de página */
+        /* Footer */
         footer {
             background: #2c3e50;
             color: white;
-            padding: 2rem 0;
-            margin-top: 2rem;
+            padding: 3rem 0 2rem;
+            margin-top: 4rem;
         }
         
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+        .footer-link {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
         }
         
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
-            margin-bottom: 1.5rem;
+        .footer-link:hover {
+            color: white;
         }
         
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            margin-top: 1.5rem;
-        }
-        
-        /* Media Queries para Responsive */
+        /* Ajustes responsive */
         @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
+            .hero-section {
+                padding: 3rem 0;
+                border-radius: 0 0 1.5rem 1.5rem;
             }
             
-            nav ul {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: #2c3e50;
-                text-align: center;
-            }
-            
-            nav ul.show {
-                display: flex;
-            }
-            
-            nav ul li {
-                margin: 0;
-                padding: 1rem 0;
-                border-bottom: 1px solid rgba(255,255,255,0.1);
-            }
-            
-            .hero h1 {
+            .hero-section h1 {
                 font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-            }
-            
-            .juego-container {
-                padding-bottom: 100%; /* Mayor altura en móviles para mejor usabilidad */
             }
             
             .quiz-container {
@@ -415,163 +218,161 @@
                 padding: 1rem;
             }
         }
-        
-        @media (max-width: 480px) {
-            .hero {
-                padding: 3rem 1rem;
-            }
-            
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .section-title {
-                font-size: 1.5rem;
-            }
-            
-            .feature-card {
-                padding: 1.5rem;
-            }
-            
-            .multimedia-section {
-                padding: 1.5rem;
-            }
-            
-            .quiz-container {
-                padding: 1rem;
-            }
-        }
-        
-        /* Estilos específicos para el botón de volver */
-        .back-button {
-            display: inline-block;
-            background: #3498db;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
-            margin: 1rem 0;
-            text-align: center;
-        }
-        
-        .back-button:hover {
-            background: #2980b9;
-            color: white;
-            text-decoration: none;
-        }
     </style>
 </head>
 <body>
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">🌟 LA CONSERVACION DE LA MATERIA</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Menú">
+    <!-- NAVBAR (idéntico al del index) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                🌟 BRAIN BOOST
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" 
+                    aria-controls="menu" aria-expanded="false" aria-label="Menú">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="menu">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="matematicas.html">Matemáticas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="humanidades.html">Humanidades</a></li>
-                    <li class="nav-item"><a class="nav-link" href="Lengua y comunicacion.html">Lengua y comunicación</a></li>
-                    <li class="nav-item"><a class="nav-link" href="La conservacion de la materia.html">La conservacion de la materia</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="matematicas.html">Matemáticas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="humanidades.html">Humanidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="lengua-comunicacion.html">Lengua</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="conservacion-materia.html">Ciencias</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- CONTENIDO PRINCIPAL -->
+    <!-- HERO SECTION (simplificado y bonito) -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-3">🔬 Conservación de la Materia</h1>
+            <p class="lead mb-4">Descubre cómo la materia se transforma sin desaparecer en fenómenos cotidianos</p>
+            <a href="#recursos" class="btn btn-light btn-lg px-5 py-3 rounded-pill">
+                <i class="fas fa-play me-2"></i>Explorar Recursos
+            </a>
+        </div>
+    </section>
+
     <div class="container">
-        <!-- Sección Hero -->
-        <section class="hero">
-            <h1>Explora el Mundo de la Conservación y la materia</h1>
-            <p>Descubre como la materia se transforma sin desaparecer y descubre este principio en fenómenos cotidianos con recursos sencillos e interactivos.</p>
-            <a href="#multimedia" class="btn">Ver Recursos</a>
-        </section>
-
-        <!-- Sección de características -->
-        <section class="features">
-            <h2 class="section-title">Nuestros Recursos</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📚</div>
-                    <h3>Lecciones Interactivas</h3>
-                    <p>Aprende sobre la materia de manera divertida con nuestras lecciones paso a paso y ejemplos prácticos.</p>
+        <!-- CARACTERÍSTICAS -->
+        <section class="mb-5" id="recursos">
+            <h2 class="text-center mb-4">Nuestros Recursos</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3>Lecciones Interactivas</h3>
+                        <p class="text-muted">Aprende sobre la materia de manera divertida con ejemplos prácticos.</p>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Ejercicios Prácticos</h3>
-                    <p>Pon a prueba tus conocimientos con ejercicios diseñados para diferentes niveles de habilidad.</p>
+                <div class="col-md-4">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <h3>Ejercicios Prácticos</h3>
+                        <p class="text-muted">Pon a prueba tus conocimientos con ejercicios interactivos.</p>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Herramientas Gráficas</h3>
-                    <p>Visualiza videos complejos con nuestras herramientas gráficas interactivas.</p>
+                <div class="col-md-4">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Herramientas Gráficas</h3>
+                        <p class="text-muted">Visualiza conceptos complejos con herramientas interactivas.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Sección Multimedia -->
-        <section id="multimedia" class="multimedia-section">
-            <h2>Video de apoyo</h2>
-            <p>Este video te ayudará a comprender mejor los conceptos de la materia que estamos estudiando.</p>
+        <!-- SECCIÓN DE VIDEO -->
+        <section class="mb-5">
+            <h2 class="text-center mb-4">Video de Apoyo</h2>
+            <p class="text-center mb-4">Este video te ayudará a comprender mejor los conceptos de conservación de la materia.</p>
             
-            <!-- Contenedor responsive para el video -->
-            <div class="video-container">
+            <div class="video-wrapper mb-4">
                 <iframe src="https://www.youtube.com/embed/f4IWnif1wjs?si=l10v71E7j426B_ec" 
-                        title="Video de La conservacion de la materia" frameborder="0" allowfullscreen></iframe>
-            </div>
-
-            <!-- Sistema de Preguntas -->
-            <div class="quiz-container" id="quiz-section">
-                <h2>Pon a prueba tus conocimientos</h2>
-                <p>Responde las siguientes preguntas para evaluar lo que has aprendido:</p>
-                
-                <div id="questions-container"></div>
-                
-                <div class="text-center">
-                    <button id="submit-btn" class="quiz-button">Verificar respuestas</button>
-                    <button id="restart-btn" class="quiz-button" style="display: none;">Intentar de nuevo</button>
-                </div>
-                
-                <div id="results-container" class="results-container" style="display: none;"></div>
-            </div>
-                       
-            <div class="text-center">
-                <a href="index.html" class="back-button">⬅️ Volver al menú</a>
+                        title="Video sobre Conservación de la Materia" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
             </div>
         </section>
+
+        <!-- SISTEMA DE PREGUNTAS -->
+        <section class="quiz-container">
+            <h2 class="text-center mb-3">📝 Pon a prueba tus conocimientos</h2>
+            <p class="text-center text-muted mb-4">Responde las siguientes preguntas para evaluar lo que has aprendido:</p>
+            
+            <div id="questions-container"></div>
+            
+            <div class="text-center mt-4">
+                <button id="submit-btn" class="quiz-button">
+                    <i class="fas fa-check me-2"></i>Verificar respuestas
+                </button>
+                <button id="restart-btn" class="quiz-button" style="display: none;">
+                    <i class="fas fa-redo me-2"></i>Intentar de nuevo
+                </button>
+            </div>
+            
+            <div id="results-container" class="results-container" style="display: none;"></div>
+        </section>
+
+        <!-- BOTÓN VOLVER -->
+        <div class="text-center">
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left me-2"></i>Volver al Inicio
+            </a>
+        </div>
     </div>
 
-    <!-- Pie de página -->
+    <!-- FOOTER -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Contacto</h3>
-                     <p>Email: geraldineapl11@gmail.com, mauricioruiz.cb144gmail.com</p>
-                    <p>Teléfono: +52 961 333 02 56, +52 961 386 45 31
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3">Contacto</h5>
+                    <p><i class="fas fa-envelope me-2"></i>geraldineapl11@gmail.com</p>
+                    <p><i class="fas fa-envelope me-2"></i>mauricioruiz.cb144@gmail.com</p>
+                    <p><i class="fas fa-phone me-2"></i>+52 961 333 02 56</p>
+                    <p><i class="fas fa-phone me-2"></i>+52 961 386 45 31</p>
                 </div>
-                <div class="footer-section">
-                    <h3>Enlaces Rápidos</h3>
-                    <p><a href="matematicas.html">Matemáticas</a></p>
-                    <p><a href="humanidades.html">Humanidades</a></p>
-                    <p><a href="Lengua y comunicacion.html">Lengua y comunicación</a></p>
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3">Enlaces Rápidos</h5>
+                    <p><a href="matematicas.html" class="footer-link">Matemáticas</a></p>
+                    <p><a href="humanidades.html" class="footer-link">Humanidades</a></p>
+                    <p><a href="lengua-comunicacion.html" class="footer-link">Lengua y comunicación</a></p>
+                    <p><a href="conservacion-materia.html" class="footer-link">Ciencias</a></p>
                 </div>
-                <div class="footer-section">
-                    <h3>Síguenos</h3>
-                    <p>Instagram: wmauricr, Grrld1nx, _aoi.ntf_</p>                
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3">Síguenos</h5>
+                    <p><i class="fab fa-instagram me-2"></i>@wmauricr</p>
+                    <p><i class="fab fa-instagram me-2"></i>@Grrld1nx</p>
+                    <p><i class="fab fa-instagram me-2"></i>@_aoi.ntf_</p>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 Recursos de La conservación de la materia. Todos los derechos reservados.</p>
+            <div class="text-center pt-3 border-top border-secondary">
+                <p class="mb-0">&copy; 2025 BRAIN BOOST. Creado para estudiantes de preparatoria.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Scripts necesarios -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
     <script>
-        // Banco de preguntas sobre Conservación de la Materia
+        // Banco de preguntas sobre Conservación de la Materia (igual al tuyo)
         const allQuestions = [
             {
                 question: "¿Qué establece la ley de conservación de la materia?",
@@ -682,11 +483,9 @@
 
         // Función para seleccionar 5 preguntas aleatorias
         function selectRandomQuestions() {
-            // Copiar el array original para no modificarlo
             const questionsCopy = [...allQuestions];
             selectedQuestions = [];
             
-            // Seleccionar 5 preguntas aleatorias
             for (let i = 0; i < 5; i++) {
                 if (questionsCopy.length === 0) break;
                 
@@ -696,7 +495,7 @@
             }
         }
 
-        // Función para mostrar las preguntas en la interfaz
+        // Función para mostrar las preguntas
         function displayQuestions() {
             const container = document.getElementById('questions-container');
             container.innerHTML = '';
@@ -715,36 +514,58 @@
                 question.options.forEach((option, optionIndex) => {
                     const optionDiv = document.createElement('div');
                     optionDiv.className = 'option';
-                    optionDiv.dataset.questionIndex = index;
-                    optionDiv.dataset.optionIndex = optionIndex;
                     
                     const radioInput = document.createElement('input');
                     radioInput.type = 'radio';
                     radioInput.name = `question-${index}`;
-                    radioInput.id = `q${index}-option${optionIndex}`;
                     radioInput.value = optionIndex;
                     
                     const label = document.createElement('label');
-                    label.htmlFor = `q${index}-option${optionIndex}`;
                     label.textContent = option;
+                    label.style.marginLeft = '0.5rem';
+                    label.style.flex = '1';
                     
                     optionDiv.appendChild(radioInput);
                     optionDiv.appendChild(label);
                     
-                    // Agregar evento de clic para seleccionar la opción
-                    optionDiv.addEventListener('click', function() {
+                    optionDiv.addEventListener('click', function(e) {
                         if (quizCompleted) return;
                         
-                        // Desmarcar todas las opciones de esta pregunta
-                        const allOptions = optionsContainer.querySelectorAll('.option');
-                        allOptions.forEach(opt => opt.classList.remove('selected'));
+                        // Si el clic fue en el radio, no hacer nada especial
+                        if (e.target.tagName === 'INPUT') return;
                         
-                        // Marcar la opción seleccionada
-                        this.classList.add('selected');
-                        radioInput.checked = true;
+                        // Seleccionar el radio correspondiente
+                        const radio = this.querySelector('input[type="radio"]');
+                        if (radio) {
+                            radio.checked = true;
+                            
+                            // Quitar selected de todos los options de esta pregunta
+                            optionsContainer.querySelectorAll('.option').forEach(opt => {
+                                opt.classList.remove('selected');
+                            });
+                            
+                            // Añadir selected a esta opción
+                            this.classList.add('selected');
+                            
+                            // Guardar respuesta
+                            userAnswers[index] = parseInt(radio.value);
+                        }
+                    });
+                    
+                    // También escuchar cambios en el radio directamente
+                    radioInput.addEventListener('change', function() {
+                        if (quizCompleted) return;
                         
-                        // Guardar la respuesta del usuario
-                        userAnswers[index] = optionIndex;
+                        // Quitar selected de todos los options de esta pregunta
+                        optionsContainer.querySelectorAll('.option').forEach(opt => {
+                            opt.classList.remove('selected');
+                        });
+                        
+                        // Añadir selected a esta opción
+                        optionDiv.classList.add('selected');
+                        
+                        // Guardar respuesta
+                        userAnswers[index] = parseInt(this.value);
                     });
                     
                     optionsContainer.appendChild(optionDiv);
@@ -756,65 +577,90 @@
             });
         }
 
-        // Función para verificar las respuestas
+        // Función para verificar respuestas
         function checkAnswers() {
             let correctCount = 0;
             const totalQuestions = selectedQuestions.length;
+            
+            // Deshabilitar interacción
+            quizCompleted = true;
             
             // Verificar cada pregunta
             selectedQuestions.forEach((question, index) => {
                 const userAnswer = userAnswers[index];
                 const correctAnswer = question.correctAnswer;
-                const questionCard = document.querySelector(`.question-card:nth-child(${index + 1})`);
+                const questionCards = document.querySelectorAll('.question-card');
+                const questionCard = questionCards[index];
                 const options = questionCard.querySelectorAll('.option');
                 
-                // Marcar la respuesta correcta
-                options[correctAnswer].classList.add('correct');
+                // Deshabilitar radios
+                options.forEach(opt => {
+                    const radio = opt.querySelector('input[type="radio"]');
+                    if (radio) radio.disabled = true;
+                    opt.classList.add('disabled-option');
+                });
                 
-                // Si el usuario respondió, marcar si es correcta o incorrecta
-                if (userAnswer !== undefined) {
-                    if (userAnswer === correctAnswer) {
-                        correctCount++;
-                    } else {
-                        options[userAnswer].classList.add('incorrect');
-                    }
+                // Marcar la respuesta correcta
+                if (options[correctAnswer]) {
+                    options[correctAnswer].classList.add('correct');
+                }
+                
+                // Si el usuario respondió, marcar si es incorrecta
+                if (userAnswer !== undefined && userAnswer !== correctAnswer) {
+                    options[userAnswer].classList.add('incorrect');
+                }
+                
+                // Contar correctas
+                if (userAnswer === correctAnswer) {
+                    correctCount++;
                 }
             });
             
             // Mostrar resultados
             showResults(correctCount, totalQuestions);
-            quizCompleted = true;
             
-            // Cambiar el botón
+            // Cambiar botones
             document.getElementById('submit-btn').style.display = 'none';
             document.getElementById('restart-btn').style.display = 'inline-block';
         }
 
-        // Función para mostrar los resultados
+        // Función para mostrar resultados
         function showResults(correctCount, totalQuestions) {
             const resultsContainer = document.getElementById('results-container');
             const percentage = (correctCount / totalQuestions) * 100;
             
             let message = '';
+            let icon = '';
+            
             if (percentage >= 80) {
+                icon = '🏆';
                 message = '¡Excelente! Dominas muy bien los conceptos de conservación de la materia.';
             } else if (percentage >= 60) {
-                message = '¡Buen trabajo! Tienes un buen conocimiento sobre la conservación de la materia.';
+                icon = '👍';
+                message = '¡Buen trabajo! Tienes un buen conocimiento, pero puedes seguir mejorando.';
             } else if (percentage >= 40) {
-                message = 'No está mal, pero puedes mejorar. Revisa el video nuevamente.';
+                icon = '📚';
+                message = 'No está mal, pero te recomendamos ver el video nuevamente.';
             } else {
-                message = 'Necesitas repasar más. Te recomendamos ver el video nuevamente.';
+                icon = '💪';
+                message = 'Sigue practicando. Revisa el video y vuelve a intentarlo.';
             }
             
             resultsContainer.innerHTML = `
-                <div class="score">Obtuviste ${correctCount} de ${totalQuestions} respuestas correctas (${percentage.toFixed(0)}%)</div>
-                <div class="feedback ${percentage >= 60 ? 'correct' : 'incorrect'}">${message}</div>
+                <div class="score-badge">${icon} ${correctCount}/${totalQuestions}</div>
+                <div class="display-6 mb-3">${percentage.toFixed(0)}%</div>
+                <div class="feedback p-3 rounded ${percentage >= 60 ? 'bg-success text-white' : 'bg-warning'}">
+                    ${message}
+                </div>
             `;
             
             resultsContainer.style.display = 'block';
+            
+            // Hacer scroll a los resultados
+            resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
-        // Función para reiniciar el cuestionario
+        // Función para reiniciar el quiz
         function restartQuiz() {
             userAnswers = {};
             quizCompleted = false;
@@ -826,33 +672,11 @@
             document.getElementById('results-container').style.display = 'none';
         }
 
-        // Inicializar el cuestionario cuando se carga la página
+        // Inicializar cuando la página carga
         document.addEventListener('DOMContentLoaded', function() {
-            // Ajustar altura del juego en dispositivos móviles
-            function adjustGameHeight() {
-                const juegoContainer = document.querySelector('.juego-container');
-                if (juegoContainer && window.innerWidth <= 768) {
-                    juegoContainer.style.paddingBottom = '120%';
-                } else if (juegoContainer) {
-                    juegoContainer.style.paddingBottom = '80%';
-                }
-            }
-            
-            // Ajustar al cargar y al redimensionar
-            adjustGameHeight();
-            window.addEventListener('resize', adjustGameHeight);
-            
-            // Mejorar la accesibilidad de los iframes
-            const iframes = document.querySelectorAll('iframe');
-            iframes.forEach(iframe => {
-                iframe.setAttribute('aria-label', iframe.getAttribute('title') || 'Contenido embebido');
-            });
-            
-            // Inicializar el sistema de preguntas
             selectRandomQuestions();
             displayQuestions();
             
-            // Configurar eventos de los botones
             document.getElementById('submit-btn').addEventListener('click', checkAnswers);
             document.getElementById('restart-btn').addEventListener('click', restartQuiz);
         });

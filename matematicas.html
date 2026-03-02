@@ -373,6 +373,51 @@
             </p>
         </section>
 
+                <!-- SECCIÓN DE COMENTARIOS - MATEMÁTICAS -->
+        <section class="quiz-container mt-5">
+            <h2 class="text-center mb-3" style="color: #2193b0;">
+                <i class="fas fa-comments me-2"></i>¿Tienes sugerencias?
+            </h2>
+            <p class="text-center text-muted mb-4">Déjanos tu comentario y me llegará directamente a mi correo</p>
+            
+            <form action="https://formspree.io/f/mbdaennd" method="POST" class="p-3">
+                <!-- Nombre -->
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Tu nombre:</label>
+                    <input type="text" name="nombre" class="form-control form-control-lg" placeholder="Ej: Juan Pérez" required>
+                </div>
+                
+                <!-- Email (para que puedas responderles) -->
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Tu email <span class="text-muted">(opcional, para responderte)</span>:</label>
+                    <input type="email" name="email" class="form-control form-control-lg" placeholder="tucorreo@ejemplo.com">
+                    <div class="form-text">Si quieres que te responda, deja tu email</div>
+                </div>
+                
+                <!-- Materia (campo oculto para saber de qué página viene) -->
+                <input type="hidden" name="materia" value="Matemáticas">
+                
+                <!-- Comentario -->
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Comentario o sugerencia:</label>
+                    <textarea name="mensaje" class="form-control form-control-lg" rows="4" placeholder="Ej: Me gustaría que añadieran más ejercicios de álgebra..." required></textarea>
+                </div>
+                
+                <!-- Botón enviar (en azul matemático) -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-lg px-5 rounded-pill" 
+                            style="background: linear-gradient(135deg, #2193b0, #6dd5ed); color: white; border: none;">
+                        <i class="fas fa-paper-plane me-2"></i>Enviar comentario
+                    </button>
+                </div>
+            </form>
+            
+            <p class="text-center text-muted small mt-3">
+                <i class="fas fa-check-circle" style="color: #2193b0;"></i>
+                ¡Gracias por ayudar a mejorar BRAIN BOOST!
+            </p>
+        </section>
+
         <!-- BOTÓN VOLVER -->
         <div class="text-center">
             <a href="index.html" class="back-button">
@@ -656,4 +701,5 @@
     </script>
 </body>
 </html>
+
 

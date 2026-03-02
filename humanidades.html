@@ -3,166 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BRAINBOOST</title>
+    <title>BRAIN BOOST - Humanidades</title>
+    
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        /* Estilos generales */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
+        /* Estilos personalizados */
         body {
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
+            background-color: #f8f9fa;
         }
         
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        /* Encabezado */
-        header {
-            background-color: #2c3e50;
+        /* Hero section con degradado verde (para humanidades) */
+        .hero-section {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
             color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 4rem 0;
+            margin-bottom: 3rem;
+            border-radius: 0 0 2rem 2rem;
         }
         
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        
-        /* Menú de navegación */
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 1.5rem;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            color: #3498db;
-        }
-        
-        /* Botón menú móvil */
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        /* Sección principal */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://source.unsplash.com/random/1200x600') no-repeat center center/cover;
-            color: white;
-            text-align: center;
-            padding: 5rem 1rem;
-            margin-bottom: 2rem;
-        }
-        
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: #3498db;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-        
-        .btn:hover {
-            background: #2980b9;
-        }
-        
-        /* Sección de características */
-        .features {
-            padding: 3rem 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: 2rem;
-            color: #2c3e50;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
+        /* Tarjetas de características */
         .feature-card {
             background: white;
+            border-radius: 1rem;
             padding: 2rem;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s;
+            height: 100%;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.08);
         }
         
         .feature-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 1rem 2rem rgba(0,0,0,0.12);
         }
         
         .feature-icon {
-            font-size: 3rem;
-            color: #3498db;
+            font-size: 2.5rem;
+            color: #11998e;
             margin-bottom: 1rem;
         }
         
-        /* Contenedor responsive para iframes */
-        .video-container {
+        /* Contenedor de video responsive */
+        .video-wrapper {
             position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+            padding-bottom: 56.25%; /* 16:9 */
             height: 0;
-            margin: 2rem 0;
-            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 1rem;
+            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+            margin: 2rem 0;
         }
         
-        .video-container iframe {
+        .video-wrapper iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -171,240 +68,164 @@
             border: none;
         }
         
-        /* Contenedor responsive para el juego */
-        .juego-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 80%; /* Relación de aspecto personalizada para el juego */
-            height: 0;
-            margin: 2rem 0;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            background-color: #f5f5f5;
-            border: 1px solid #ddd;
-        }
-        
-        .juego-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
-        /* Sección de contenido multimedia */
-        .multimedia-section {
-            padding: 2rem 0;
-            background-color: white;
-            border-radius: 8px;
-            margin: 2rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        
-        .multimedia-section h2 {
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #3498db;
-        }
-        
-        /* Estilos para el sistema de preguntas */
+        /* Estilos para el quiz */
         .quiz-container {
-            background-color: white;
-            border-radius: 8px;
+            background: white;
+            border-radius: 1rem;
             padding: 2rem;
             margin: 2rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.08);
         }
         
         .question-card {
-            background-color: #f8f9fa;
-            border-radius: 8px;
+            background: #f8f9fa;
+            border-radius: 0.75rem;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
-            border-left: 4px solid #3498db;
+            border-left: 4px solid #11998e;
         }
         
         .question-text {
-            font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 1rem;
             color: #2c3e50;
         }
         
-        .options-container {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-        }
-        
         .option {
             display: flex;
             align-items: center;
-            padding: 0.8rem 1rem;
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            padding: 0.75rem 1rem;
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
             cursor: pointer;
             transition: all 0.2s;
         }
         
-        .option:hover {
-            background-color: #f1f8ff;
-            border-color: #3498db;
+        .option:hover:not(.disabled-option) {
+            border-color: #11998e;
+            background: #e0f2e9;
         }
         
         .option.selected {
-            background-color: #e1f0ff;
-            border-color: #3498db;
+            border-color: #11998e;
+            background: #c8e6d9;
         }
         
         .option.correct {
-            background-color: #d4edda;
             border-color: #28a745;
+            background: #d4edda;
         }
         
         .option.incorrect {
-            background-color: #f8d7da;
             border-color: #dc3545;
+            background: #f8d7da;
         }
         
-        .option input {
-            margin-right: 0.8rem;
+        .option input[type="radio"] {
+            margin-right: 1rem;
+            width: 1.2rem;
+            height: 1.2rem;
         }
         
         .quiz-button {
-            display: inline-block;
-            background: #3498db;
+            background: #11998e;
             color: white;
-            padding: 0.8rem 1.5rem;
             border: none;
-            border-radius: 5px;
+            padding: 0.75rem 2rem;
+            border-radius: 2rem;
+            font-weight: 600;
             cursor: pointer;
             transition: background 0.3s;
-            font-size: 1rem;
-            margin-top: 1rem;
+            margin: 0.5rem;
         }
         
         .quiz-button:hover {
-            background: #2980b9;
+            background: #0e7d74;
         }
         
         .quiz-button:disabled {
-            background: #bdc3c7;
+            background: #cbd5e0;
             cursor: not-allowed;
         }
         
         .results-container {
-            text-align: center;
+            background: #f8f9fa;
+            border-radius: 1rem;
             padding: 2rem;
-            background-color: #f8f9fa;
-            border-radius: 8px;
             margin-top: 2rem;
+            text-align: center;
         }
         
-        .score {
-            font-size: 1.5rem;
+        .score-badge {
+            font-size: 2rem;
             font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 1rem;
+            color: #11998e;
         }
         
-        .feedback {
-            margin-top: 1rem;
-            padding: 1rem;
-            border-radius: 4px;
+        /* Botón volver */
+        .back-button {
+            display: inline-block;
+            background: #6c757d;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+            margin: 2rem 0;
         }
         
-        .feedback.correct {
-            background-color: #d4edda;
-            color: #155724;
+        .back-button:hover {
+            background: #5a6268;
+            color: white;
         }
         
-        .feedback.incorrect {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
-        
-        /* Pie de página */
+        /* Footer */
         footer {
             background: #2c3e50;
             color: white;
-            padding: 2rem 0;
-            margin-top: 2rem;
+            padding: 3rem 0 2rem;
+            margin-top: 4rem;
         }
         
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+        .footer-link {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
         }
         
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
+        .footer-link:hover {
+            color: white;
+        }
+        
+        /* Línea de tiempo (extra para humanidades) */
+        .timeline-item {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
             margin-bottom: 1.5rem;
+            box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.05);
+            border-left: 4px solid #11998e;
         }
         
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
+        .timeline-year {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #11998e;
+            margin-bottom: 0.5rem;
         }
         
-        .footer-bottom {
-            text-align: center;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            margin-top: 1.5rem;
-        }
-        
-        /* Media Queries para Responsive */
+        /* Ajustes responsive */
         @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
+            .hero-section {
+                padding: 3rem 0;
+                border-radius: 0 0 1.5rem 1.5rem;
             }
             
-            nav ul {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: #2c3e50;
-                text-align: center;
-            }
-            
-            nav ul.show {
-                display: flex;
-            }
-            
-            nav ul li {
-                margin: 0;
-                padding: 1rem 0;
-                border-bottom: 1px solid rgba(255,255,255,0.1);
-            }
-            
-            .hero h1 {
+            .hero-section h1 {
                 font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-            }
-            
-            .juego-container {
-                padding-bottom: 100%; /* Mayor altura en móviles para mejor usabilidad */
             }
             
             .quiz-container {
@@ -415,163 +236,196 @@
                 padding: 1rem;
             }
         }
-        
-        @media (max-width: 480px) {
-            .hero {
-                padding: 3rem 1rem;
-            }
-            
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .section-title {
-                font-size: 1.5rem;
-            }
-            
-            .feature-card {
-                padding: 1.5rem;
-            }
-            
-            .multimedia-section {
-                padding: 1.5rem;
-            }
-            
-            .quiz-container {
-                padding: 1rem;
-            }
-        }
-        
-        /* Estilos específicos para el botón de volver */
-        .back-button {
-            display: inline-block;
-            background: #3498db;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
-            margin: 1rem 0;
-            text-align: center;
-        }
-        
-        .back-button:hover {
-            background: #2980b9;
-            color: white;
-            text-decoration: none;
-        }
     </style>
 </head>
 <body>
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">🌟 HUMANIDADES</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Menú">
+    <!-- NAVBAR (idéntico al del index) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                🌟 BRAIN BOOST
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" 
+                    aria-controls="menu" aria-expanded="false" aria-label="Menú">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="menu">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="matematicas.html">Matemáticas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="humanidades.html">Humanidades</a></li>
-                    <li class="nav-item"><a class="nav-link" href="Lengua y comunicacion.html">Lengua y comunicación</a></li>
-                    <li class="nav-item"><a class="nav-link" href="La conservacion de la materia.html">La conservacion de la materia</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="matematicas.html">Matemáticas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="humanidades.html">Humanidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="lengua-comunicacion.html">Lengua</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="conservacion-materia.html">Ciencias</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- CONTENIDO PRINCIPAL -->
+    <!-- HERO SECTION (degradado verde para humanidades) -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-3">📚 Humanidades</h1>
+            <p class="lead mb-4">Explora quiénes somos como individuos y sociedad a través de la filosofía, la historia y la cultura</p>
+            <a href="#recursos" class="btn btn-light btn-lg px-5 py-3 rounded-pill">
+                <i class="fas fa-play me-2"></i>Explorar Recursos
+            </a>
+        </div>
+    </section>
+
     <div class="container">
-        <!-- Sección Hero -->
-        <section class="hero">
-            <h1>Explora el Mundo de Humanidades</h1>
-            <p>Explora quienes somos como individuos y sociedad.</p>
-            <a href="#multimedia" class="btn">Ver Recursos</a>
-        </section>
-
-        <!-- Sección de características -->
-        <section class="features">
-            <h2 class="section-title">Nuestros Recursos</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📚</div>
-                    <h3>Lecciones Interactivas</h3>
-                    <p>Aprende humanidades de manera divertida con nuestras lecciones paso a paso y ejemplos prácticos.</p>
+        <!-- CARACTERÍSTICAS -->
+        <section class="mb-5" id="recursos">
+            <h2 class="text-center mb-4">Nuestros Recursos</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3>Lecciones Interactivas</h3>
+                        <p class="text-muted">Aprende humanidades de manera divertida con lecciones paso a paso y ejemplos prácticos.</p>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Ejercicios Prácticos</h3>
-                    <p>Pon a prueba tus conocimientos con ejercicios diseñados para diferentes niveles de habilidad.</p>
+                <div class="col-md-4">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <h3>Ejercicios Prácticos</h3>
+                        <p class="text-muted">Pon a prueba tus conocimientos con ejercicios para diferentes niveles de habilidad.</p>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Herramientas Gráficas</h3>
-                    <p>Visualiza videos complejos y ponte a prueba con preguntas practicas.</p>
+                <div class="col-md-4">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Análisis Crítico</h3>
+                        <p class="text-muted">Desarrolla tu pensamiento crítico con actividades de reflexión y análisis.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Sección Multimedia -->
-        <section id="multimedia" class="multimedia-section">
-            <h2>Video de apoyo</h2>
-            <p>Este video te ayudará a comprender mejor el concepto de humanidades que estamos estudiando.</p>
+        <!-- SECCIÓN DE VIDEO -->
+        <section class="mb-5">
+            <h2 class="text-center mb-4">Video de Apoyo</h2>
+            <p class="text-center mb-4">Este video te ayudará a comprender mejor los conceptos de humanidades.</p>
             
-            <!-- Contenedor responsive para el video -->
-            <div class="video-container">
+            <div class="video-wrapper">
                 <iframe src="https://www.youtube.com/embed/BQnMve6ypvg?si=q2ooDfa6XBBlT3Bd" 
-                        title="Video de Humanidades" frameborder="0" allowfullscreen></iframe>
-            </div>
-
-            <!-- Sistema de Preguntas -->
-            <div class="quiz-container" id="quiz-section">
-                <h2>Pon a prueba tus conocimientos</h2>
-                <p>Responde las siguientes preguntas para evaluar lo que has aprendido:</p>
-                
-                <div id="questions-container"></div>
-                
-                <div class="text-center">
-                    <button id="submit-btn" class="quiz-button">Verificar respuestas</button>
-                    <button id="restart-btn" class="quiz-button" style="display: none;">Intentar de nuevo</button>
-                </div>
-                
-                <div id="results-container" class="results-container" style="display: none;"></div>
-            </div>
-                      
-            <div class="text-center">
-                <a href="index.html" class="back-button">⬅️ Volver al menú</a>
+                        title="Video de Humanidades" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
             </div>
         </section>
+
+        <!-- SISTEMA DE PREGUNTAS -->
+        <section class="quiz-container">
+            <h2 class="text-center mb-3">📝 Pon a prueba tus conocimientos</h2>
+            <p class="text-center text-muted mb-4">Responde las siguientes preguntas para evaluar lo que has aprendido:</p>
+            
+            <div id="questions-container"></div>
+            
+            <div class="text-center mt-4">
+                <button id="submit-btn" class="quiz-button">
+                    <i class="fas fa-check me-2"></i>Verificar respuestas
+                </button>
+                <button id="restart-btn" class="quiz-button" style="display: none;">
+                    <i class="fas fa-redo me-2"></i>Intentar de nuevo
+                </button>
+            </div>
+            
+            <div id="results-container" class="results-container" style="display: none;"></div>
+        </section>
+
+        <!-- SECCIÓN DE LECTURAS RECOMENDADAS -->
+        <section class="mb-5">
+            <h2 class="text-center mb-4">📖 Lecturas Recomendadas</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="timeline-item">
+                        <div class="timeline-year">Filosofía Antigua</div>
+                        <h5>La República - Platón</h5>
+                        <p class="text-muted">Una exploración sobre la justicia, la política y la naturaleza del ser humano.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="timeline-item">
+                        <div class="timeline-year">Renacimiento</div>
+                        <h5>El Príncipe - Maquiavelo</h5>
+                        <p class="text-muted">Un tratado político que analiza el poder y el gobierno.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="timeline-item">
+                        <div class="timeline-year">Filosofía Moderna</div>
+                        <h5>El Contrato Social - Rousseau</h5>
+                        <p class="text-muted">Sobre los principios del derecho político y la soberanía popular.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="timeline-item">
+                        <div class="timeline-year">Siglo XX</div>
+                        <h5>La Peste - Albert Camus</h5>
+                        <p class="text-muted">Una reflexión sobre la condición humana y la solidaridad.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BOTÓN VOLVER -->
+        <div class="text-center">
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left me-2"></i>Volver al Inicio
+            </a>
+        </div>
     </div>
 
-    <!-- Pie de página -->
+    <!-- FOOTER -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Contacto</h3>
-                    <p>Email: geraldineapl11@gmail.com, mauricioruiz.cb144gmail.com</p>
-                    <p>Teléfono: +52 961 333 02 56, +52 961 386 45 31
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3">Contacto</h5>
+                    <p><i class="fas fa-envelope me-2"></i>geraldineapl11@gmail.com</p>
+                    <p><i class="fas fa-envelope me-2"></i>mauricioruiz.cb144@gmail.com</p>
+                    <p><i class="fas fa-phone me-2"></i>+52 961 333 02 56</p>
+                    <p><i class="fas fa-phone me-2"></i>+52 961 386 45 31</p>
                 </div>
-                <div class="footer-section">
-                    <h3>Enlaces Rápidos</h3>
-                    <p><a href="matematicas.html">Matemáticas</a></p>
-                    <p><a href="humanidades.html">Humanidades</a></p>
-                    <p><a href="Lengua y comunicacion.html">Lengua y comunicación</a></p>
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3">Enlaces Rápidos</h5>
+                    <p><a href="matematicas.html" class="footer-link">Matemáticas</a></p>
+                    <p><a href="humanidades.html" class="footer-link">Humanidades</a></p>
+                    <p><a href="lengua-comunicacion.html" class="footer-link">Lengua y comunicación</a></p>
+                    <p><a href="conservacion-materia.html" class="footer-link">Ciencias</a></p>
                 </div>
-                <div class="footer-section">
-                    <h3>Síguenos</h3>
-                    <p>Instagram: wmauricr, Grrld1nx, _aoi.ntf_</p>
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3">Síguenos</h5>
+                    <p><i class="fab fa-instagram me-2"></i>@wmauricr</p>
+                    <p><i class="fab fa-instagram me-2"></i>@Grrld1nx</p>
+                    <p><i class="fab fa-instagram me-2"></i>@_aoi.ntf_</p>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 Recursos de Humanidades. Todos los derechos reservados.</p>
+            <div class="text-center pt-3 border-top border-secondary">
+                <p class="mb-0">&copy; 2025 BRAIN BOOST. Creado para estudiantes de preparatoria.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
     <script>
-        // Banco de preguntas sobre Humanidades
+        // Banco de preguntas sobre Humanidades (TUS PREGUNTAS ORIGINALES)
         const allQuestions = [
             {
                 question: "¿Qué estudian principalmente las humanidades?",
@@ -585,72 +439,37 @@
             },
             {
                 question: "¿Quién es considerado el padre de la filosofía occidental?",
-                options: [
-                    "Aristóteles",
-                    "Platón",
-                    "Sócrates",
-                    "Descartes"
-                ],
+                options: ["Aristóteles", "Platón", "Sócrates", "Descartes"],
                 correctAnswer: 2
             },
             {
                 question: "¿Qué período histórico sigue a la Edad Media?",
-                options: [
-                    "Edad Antigua",
-                    "Renacimiento",
-                    "Edad Contemporánea",
-                    "Ilustración"
-                ],
+                options: ["Edad Antigua", "Renacimiento", "Edad Contemporánea", "Ilustración"],
                 correctAnswer: 1
             },
             {
                 question: "¿Qué movimiento artístico se caracterizó por el uso de líneas curvas y ornamentación excesiva?",
-                options: [
-                    "Renacimiento",
-                    "Barroco",
-                    "Neoclasicismo",
-                    "Realismo"
-                ],
+                options: ["Renacimiento", "Barroco", "Neoclasicismo", "Realismo"],
                 correctAnswer: 1
             },
             {
                 question: "¿Qué filósofo dijo 'Pienso, luego existo'?",
-                options: [
-                    "Immanuel Kant",
-                    "Friedrich Nietzsche",
-                    "René Descartes",
-                    "Jean-Paul Sartre"
-                ],
+                options: ["Immanuel Kant", "Friedrich Nietzsche", "René Descartes", "Jean-Paul Sartre"],
                 correctAnswer: 2
             },
             {
                 question: "¿Qué obra literaria es atribuida a Homero?",
-                options: [
-                    "La Divina Comedia",
-                    "La Ilíada",
-                    "Don Quijote de la Mancha",
-                    "Romeo y Julieta"
-                ],
+                options: ["La Divina Comedia", "La Ilíada", "Don Quijote de la Mancha", "Romeo y Julieta"],
                 correctAnswer: 1
             },
             {
                 question: "¿Qué significa el término 'Antropología'?",
-                options: [
-                    "Estudio de los animales",
-                    "Estudio del ser humano",
-                    "Estudio de las plantas",
-                    "Estudio de la tierra"
-                ],
+                options: ["Estudio de los animales", "Estudio del ser humano", "Estudio de las plantas", "Estudio de la tierra"],
                 correctAnswer: 1
             },
             {
                 question: "¿En qué siglo ocurrió la Revolución Francesa?",
-                options: [
-                    "Siglo XVI",
-                    "Siglo XVII",
-                    "Siglo XVIII",
-                    "Siglo XIX"
-                ],
+                options: ["Siglo XVI", "Siglo XVII", "Siglo XVIII", "Siglo XIX"],
                 correctAnswer: 2
             },
             {
@@ -665,12 +484,7 @@
             },
             {
                 question: "¿Qué disciplina estudia los diferentes sistemas de gobierno?",
-                options: [
-                    "Sociología",
-                    "Ciencia Política",
-                    "Economía",
-                    "Psicología"
-                ],
+                options: ["Sociología", "Ciencia Política", "Economía", "Psicología"],
                 correctAnswer: 1
             }
         ];
@@ -682,11 +496,9 @@
 
         // Función para seleccionar 5 preguntas aleatorias
         function selectRandomQuestions() {
-            // Copiar el array original para no modificarlo
             const questionsCopy = [...allQuestions];
             selectedQuestions = [];
             
-            // Seleccionar 5 preguntas aleatorias
             for (let i = 0; i < 5; i++) {
                 if (questionsCopy.length === 0) break;
                 
@@ -696,7 +508,7 @@
             }
         }
 
-        // Función para mostrar las preguntas en la interfaz
+        // Función para mostrar las preguntas
         function displayQuestions() {
             const container = document.getElementById('questions-container');
             container.innerHTML = '';
@@ -715,36 +527,47 @@
                 question.options.forEach((option, optionIndex) => {
                     const optionDiv = document.createElement('div');
                     optionDiv.className = 'option';
-                    optionDiv.dataset.questionIndex = index;
-                    optionDiv.dataset.optionIndex = optionIndex;
                     
                     const radioInput = document.createElement('input');
                     radioInput.type = 'radio';
                     radioInput.name = `question-${index}`;
-                    radioInput.id = `q${index}-option${optionIndex}`;
                     radioInput.value = optionIndex;
                     
                     const label = document.createElement('label');
-                    label.htmlFor = `q${index}-option${optionIndex}`;
                     label.textContent = option;
+                    label.style.marginLeft = '0.5rem';
+                    label.style.flex = '1';
                     
                     optionDiv.appendChild(radioInput);
                     optionDiv.appendChild(label);
                     
-                    // Agregar evento de clic para seleccionar la opción
-                    optionDiv.addEventListener('click', function() {
+                    optionDiv.addEventListener('click', function(e) {
                         if (quizCompleted) return;
                         
-                        // Desmarcar todas las opciones de esta pregunta
-                        const allOptions = optionsContainer.querySelectorAll('.option');
-                        allOptions.forEach(opt => opt.classList.remove('selected'));
+                        if (e.target.tagName === 'INPUT') return;
                         
-                        // Marcar la opción seleccionada
-                        this.classList.add('selected');
-                        radioInput.checked = true;
+                        const radio = this.querySelector('input[type="radio"]');
+                        if (radio) {
+                            radio.checked = true;
+                            
+                            optionsContainer.querySelectorAll('.option').forEach(opt => {
+                                opt.classList.remove('selected');
+                            });
+                            
+                            this.classList.add('selected');
+                            userAnswers[index] = parseInt(radio.value);
+                        }
+                    });
+                    
+                    radioInput.addEventListener('change', function() {
+                        if (quizCompleted) return;
                         
-                        // Guardar la respuesta del usuario
-                        userAnswers[index] = optionIndex;
+                        optionsContainer.querySelectorAll('.option').forEach(opt => {
+                            opt.classList.remove('selected');
+                        });
+                        
+                        optionDiv.classList.add('selected');
+                        userAnswers[index] = parseInt(this.value);
                     });
                     
                     optionsContainer.appendChild(optionDiv);
@@ -756,65 +579,80 @@
             });
         }
 
-        // Función para verificar las respuestas
+        // Función para verificar respuestas
         function checkAnswers() {
             let correctCount = 0;
             const totalQuestions = selectedQuestions.length;
             
-            // Verificar cada pregunta
+            quizCompleted = true;
+            
             selectedQuestions.forEach((question, index) => {
                 const userAnswer = userAnswers[index];
                 const correctAnswer = question.correctAnswer;
-                const questionCard = document.querySelector(`.question-card:nth-child(${index + 1})`);
+                const questionCards = document.querySelectorAll('.question-card');
+                const questionCard = questionCards[index];
                 const options = questionCard.querySelectorAll('.option');
                 
-                // Marcar la respuesta correcta
-                options[correctAnswer].classList.add('correct');
+                options.forEach(opt => {
+                    const radio = opt.querySelector('input[type="radio"]');
+                    if (radio) radio.disabled = true;
+                    opt.classList.add('disabled-option');
+                });
                 
-                // Si el usuario respondió, marcar si es correcta o incorrecta
-                if (userAnswer !== undefined) {
-                    if (userAnswer === correctAnswer) {
-                        correctCount++;
-                    } else {
-                        options[userAnswer].classList.add('incorrect');
-                    }
+                if (options[correctAnswer]) {
+                    options[correctAnswer].classList.add('correct');
+                }
+                
+                if (userAnswer !== undefined && userAnswer !== correctAnswer) {
+                    options[userAnswer].classList.add('incorrect');
+                }
+                
+                if (userAnswer === correctAnswer) {
+                    correctCount++;
                 }
             });
             
-            // Mostrar resultados
             showResults(correctCount, totalQuestions);
-            quizCompleted = true;
             
-            // Cambiar el botón
             document.getElementById('submit-btn').style.display = 'none';
             document.getElementById('restart-btn').style.display = 'inline-block';
         }
 
-        // Función para mostrar los resultados
+        // Función para mostrar resultados
         function showResults(correctCount, totalQuestions) {
             const resultsContainer = document.getElementById('results-container');
             const percentage = (correctCount / totalQuestions) * 100;
             
             let message = '';
+            let icon = '';
+            
             if (percentage >= 80) {
+                icon = '🏆';
                 message = '¡Excelente! Dominas muy bien los conceptos de humanidades.';
             } else if (percentage >= 60) {
+                icon = '👍';
                 message = '¡Buen trabajo! Tienes un buen conocimiento sobre humanidades.';
             } else if (percentage >= 40) {
+                icon = '📚';
                 message = 'No está mal, pero puedes mejorar. Revisa el video nuevamente.';
             } else {
-                message = 'Necesitas repasar más. Te recomendamos ver el video nuevamente.';
+                icon = '💪';
+                message = 'Sigue practicando. Revisa el video y vuelve a intentarlo.';
             }
             
             resultsContainer.innerHTML = `
-                <div class="score">Obtuviste ${correctCount} de ${totalQuestions} respuestas correctas (${percentage.toFixed(0)}%)</div>
-                <div class="feedback ${percentage >= 60 ? 'correct' : 'incorrect'}">${message}</div>
+                <div class="score-badge">${icon} ${correctCount}/${totalQuestions}</div>
+                <div class="display-6 mb-3">${percentage.toFixed(0)}%</div>
+                <div class="feedback p-3 rounded ${percentage >= 60 ? 'bg-success text-white' : 'bg-warning'}">
+                    ${message}
+                </div>
             `;
             
             resultsContainer.style.display = 'block';
+            resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
-        // Función para reiniciar el cuestionario
+        // Función para reiniciar el quiz
         function restartQuiz() {
             userAnswers = {};
             quizCompleted = false;
@@ -826,33 +664,11 @@
             document.getElementById('results-container').style.display = 'none';
         }
 
-        // Inicializar el cuestionario cuando se carga la página
+        // Inicializar cuando la página carga
         document.addEventListener('DOMContentLoaded', function() {
-            // Ajustar altura del juego en dispositivos móviles
-            function adjustGameHeight() {
-                const juegoContainer = document.querySelector('.juego-container');
-                if (juegoContainer && window.innerWidth <= 768) {
-                    juegoContainer.style.paddingBottom = '120%';
-                } else if (juegoContainer) {
-                    juegoContainer.style.paddingBottom = '80%';
-                }
-            }
-            
-            // Ajustar al cargar y al redimensionar
-            adjustGameHeight();
-            window.addEventListener('resize', adjustGameHeight);
-            
-            // Mejorar la accesibilidad de los iframes
-            const iframes = document.querySelectorAll('iframe');
-            iframes.forEach(iframe => {
-                iframe.setAttribute('aria-label', iframe.getAttribute('title') || 'Contenido embebido');
-            });
-            
-            // Inicializar el sistema de preguntas
             selectRandomQuestions();
             displayQuestions();
             
-            // Configurar eventos de los botones
             document.getElementById('submit-btn').addEventListener('click', checkAnswers);
             document.getElementById('restart-btn').addEventListener('click', restartQuiz);
         });
